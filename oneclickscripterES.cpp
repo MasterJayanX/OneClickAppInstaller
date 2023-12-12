@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <cstdlib>
+#include <locale.h>
 #define INICIO 1000
 
 using namespace std;
@@ -138,6 +140,7 @@ void script(string os, string update){
 }
 
 int main(){
+    setlocale(LC_ALL, "");
     int opcion = INICIO;
     string os, update;
     cout << "Bienvenido a OneClickAppInstaller, un software que te permite crear un script que instala aplicaciones de Windows o Linux con un solo clic." << endl;
@@ -150,7 +153,7 @@ int main(){
         }
         else if(opcion == 1){
             os = "Windows";
-            update = "winget upgrade -h -all";
+            update = "winget upgrade -h --all";
             cout << "Este script hace uso del gestor de paquetes winget para instalar las aplicaciones. ¿Deseas que el script instale winget? [y/n]" << endl;
             char winget;
             cin >> winget;
@@ -220,6 +223,6 @@ int main(){
             opcion = INICIO;
         }
     }
-
+    system("pause");
     return 0;
 }

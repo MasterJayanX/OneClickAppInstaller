@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <cstdlib>
 #define START 1000
 
 using namespace std;
@@ -220,6 +221,6 @@ int main(){
             opcion = START;
         }
     }
-
+    system("pause");
     return 0;
 }
