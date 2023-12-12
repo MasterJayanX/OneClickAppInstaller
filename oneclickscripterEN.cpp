@@ -8,14 +8,14 @@ void programas(string os, ofstream& script){
     int opcion = 1;
     string pack, instruccion;
     while(opcion == 1){
-        cout << "¿Deseas agregar aplicaciones al script?" << endl << "1. Sí" << endl << "Otra opción: No" << endl;
+        cout << "Do you want to add applications to the script?" << endl << "1. Yes" << endl << "Another option: No" << endl;
         cin >> opcion;
         if(opcion != 1){
             break;
         }
-        cout << "Ingrese el nombre del paquete de la aplicación que deseas instalar. Ten en cuenta que el nombre del paquete debe ser un nombre de paquete válido para que el script funcione correctamente." << endl;
-        cout << "Para usuarios de Windows (winget), pueden encontrar los nombres de paquetes válidos aquí: https://winget.run (no es necesario copiar la parte que dice winget install, solo el ID del paquete)." << endl;
-        cout << "Para usuarios de Linux (Ubuntu/Debian) , pueden encontrar los nombres de paquetes válidos aquí: https://packages.ubuntu.com, https://packages.debian.org/en/" << endl;
+        cout << "Enter the name of the application package you want to install. Keep in mind that the name of the package should be a valid package name so that the script works correctly."<< endl;
+        cout << "For Windows users (Winget), you can find the names of valid packages here: https://winget.run (it is not necessary to copy the part that Winget Install says, only the ID of the package)."<< endl;
+        cout << "For Linux users (Ubuntu/Debian), you can find the names of valid packages here: https://packages.ubuntu.com, https://packages.debian.org/en/" << endl;
         cin >> pack;
         if(os == "Windows"){
             instruccion = "winget install " + pack;
@@ -30,10 +30,10 @@ void programas(string os, ofstream& script){
 void script_windows(string os, string update){
     char personalizado;
     string nombre;
-    cout << "¿Deseas ponerle un nombre personalizado a tu script? [y/n]" << endl;
+    cout << "Do you want to put a personalized name to your script? [y/n]" << endl;
     cin >> personalizado;
     if(personalizado == 'y' || personalizado == 'Y'){
-        cout << "Elige un nombre para tu archivo: " << endl;
+        cout << "Choose a name for your file:" << endl;
         cin >> nombre;
         nombre += ".bat";
     }
@@ -41,7 +41,7 @@ void script_windows(string os, string update){
         nombre = os + ".bat";
     }
     else{
-        cout << "Opción no válida." << endl;
+        cout << "Non-valid option. We will not apply a personalized name." << endl;
     }
     ofstream script;
     script.open(nombre);
@@ -52,10 +52,10 @@ void script_windows(string os, string update){
 void script_linux(string os, string update){
     char personalizado;
     string nombre;
-    cout << "¿Deseas ponerle un nombre personalizado a tu script? [y/n]" << endl;
+    cout << "Do you want to put a personalized name to your script? [y/n]" << endl;
     cin >> personalizado;
     if(personalizado == 'y' || personalizado == 'Y'){
-        cout << "Elige un nombre para tu archivo: " << endl;
+        cout << "Choose a name for your file: " << endl;
         cin >> nombre;
         nombre += ".sh";
     }
@@ -63,7 +63,7 @@ void script_linux(string os, string update){
         nombre = os + ".sh";
     }
     else{
-        cout << "Opción no válida. No se aplicará un nombre personalizado." << endl;
+        cout << "Non-valid option. We will not apply a personalized name." << endl;
         nombre = os + ".sh";
     }
     ofstream script;
@@ -78,7 +78,8 @@ int main(){
     string os;
     string nombre;
     string update;
-    cout << "Selecciona el sistema operativo para el que vas a hacer tu script: " << endl << "1. Windows" << endl << "2. Linux (Ubuntu/Debian)" << endl << "3. Salir" << endl;
+    cout << "Welcome to OneClickAppInstaller, a software that allows you to create a script that will install all your apps for Windows or Linux (Ubuntu/Debian) with a single click." << endl;
+    cout << "Select the operating system for which you are going to do your script: " << endl << "1. Windows" << endl << "2. Linux (Ubuntu/Debian)" << endl << "3. Exit" << endl;
     cin >> opcion;
     if(opcion == 3){
         return 0;
@@ -94,7 +95,7 @@ int main(){
         script_linux(os, update);
     }
     else{
-        cout << "Opción no válida." << endl;
+        cout << "Non-valid option." << endl;
         return 0;
     }
     return 0;
