@@ -1,15 +1,16 @@
 # OneClickAppInstaller
+[![GitHub release](https://img.shields.io/github/v/release/MasterJayanX/OneClickAppInstaller.svg)](https://github.com/MasterJayanX/OneClickAppInstaller/releases)
 ## English
 ### Description
 OneClickAppInstaller is a simple CLI tool that allows you to create a script to automatically install all of your apps on Windows or Linux with only one click. Please note that, at the moment, Ubuntu, Debian and derived distributions are the only supported Linux distributions.
 ### Requirements
 Windows:
 
-- Windows 10 or above. The software might work on older versions of Windows, but the resulting script will only run on Windows 10 or above because it makes use of Winget to install packages.
+- Windows 10 or above. The software might work on older versions of Windows, but the resulting script will only run on Windows 10 or above because it makes use of [winget](https://github.com/microsoft/winget-cli "winget") to install packages.
 
 macOS:
 
-- Any version of macOS that can run Homebrew.
+- Any version of macOS that can run [Homebrew](https://github.com/Homebrew/brew).
 
 Linux:
 
@@ -25,11 +26,11 @@ OneClickAppInstaller es una herramienta de línea de comandos sencilla que te pe
 ### Requisitos
 Windows:
 
-- Windows 10 en adelante. Es posible que el software funcione en versiones anteriores de Windows, pero el script resultante solo se ejecutará en Windows 10 o superiores, porque utiliza Winget para instalar paquetes.
+- Windows 10 en adelante. Es posible que el software funcione en versiones anteriores de Windows, pero el script resultante solo se ejecutará en Windows 10 o superiores, porque utiliza [winget](https://github.com/microsoft/winget-cli "winget") para instalar paquetes.
 
 macOS:
 
-- Cualquier versión de macOS que pueda ejecutar Homebrew.
+- Cualquier versión de macOS que pueda ejecutar [Homebrew](https://github.com/Homebrew/brew).
 
 Linux:
 
