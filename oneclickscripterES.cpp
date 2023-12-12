@@ -3,7 +3,7 @@
 #include <fstream>
 
 using namespace std;
-
+/*Programa hecho por MasterJayanX*/
 void programas(string os, ofstream& script){
     int opcion = 1;
     string pack, instruccion;
