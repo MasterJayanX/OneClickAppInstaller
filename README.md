@@ -2,7 +2,7 @@
 [![GitHub release](https://img.shields.io/github/v/release/MasterJayanX/OneClickAppInstaller.svg)](https://github.com/MasterJayanX/OneClickAppInstaller/releases)
 ## English
 ### Description
-OneClickAppInstaller is a simple CLI tool that allows you to create a script to automatically install all of your apps on Windows or Linux with only one click. Please note that, at the moment, Ubuntu, Debian and derived distributions are the only supported Linux distributions.
+OneClickAppInstaller is a simple CLI tool that allows you to create a script to automatically install all of your apps on Windows, macOS or Linux with only one click.
 ### Requirements
 Windows:
 
@@ -22,7 +22,7 @@ To install the OneClickAppInstaller Script Creator, you just need to execute the
 
 ## Español
 ### Descripción
-OneClickAppInstaller es una herramienta de línea de comandos sencilla que te permite crear un script para instalar todas tus aplicaciones en Windows o Linux automáticamente con solo un clic. Tengan en cuenta que, por el momento, Ubuntu, Debian y distribuciones derivadas son las únicas distribuciones Linux compatibles.
+OneClickAppInstaller es una herramienta de línea de comandos sencilla que te permite crear un script para instalar todas tus aplicaciones en Windows, macOS o Linux automáticamente con solo un clic.
 ### Requisitos
 Windows:
 
