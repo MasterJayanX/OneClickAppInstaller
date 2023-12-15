@@ -142,7 +142,7 @@ int main(){
     int opcion = START;
     string os, update;
     cout << "Welcome to OneClickAppinstaller, a software that allows you to create a script that installs Windows or Linux applications with a single click." << endl;
-    cout << "This software was created by Masterjayanx." << endl;
+    cout << "This software was created by MasterJayanX." << endl;
     while(opcion == START){
         cout << "Select an option:" << endl << "1. Create a script for Windows" << endl << "2. Create a script for macOS" << endl << "3. Create a script for Linux" << endl <<"4. About" << endl << "5. Exit" << endl;
         cin >> opcion;
@@ -152,13 +152,14 @@ int main(){
         else if(opcion == 1){
             os = "Windows";
             update = "winget upgrade -h -all";
-            cout << "This script makes use of the Winget package manager to install applications. Do you want the script to install winget? [y/n]" << endl;
+            cout << "This script makes use of the winget package manager to install applications. Do you want the script to install winget? [y/n]" << endl;
             char winget;
             cin >> winget;
             if(winget == 'y' || winget == 'Y'){
                 install_winget = true;
             }
             else if(winget == 'n' || winget == 'N'){
+                cout << "Winget will not be installed." << endl;
                 install_winget = false;
             }
             else{
@@ -170,7 +171,7 @@ int main(){
         else if(opcion == 2){
             os = "macOS";
             update = "softwareupdate -i -a";
-            cout << "This script makes use of the BREW package manager to install applications. Do you want the script to install brew? [y/n]" << endl;
+            cout << "This script makes use of the Homebrew package manager to install applications. Do you want the script to install Homebrew (brew)? [y/n]" << endl;
             char brew;
             cin >> brew;
             if(brew == 'y' || brew == 'Y'){
@@ -178,9 +179,10 @@ int main(){
             }
             else if(brew == 'n' || brew == 'N'){
                 install_brew = false;
+                cout << "Homebrew will not be installed." << endl;
             }
             else{
-                cout << "Non -valid option. Brew will not be installed." << endl;
+                cout << "Non -valid option. Homebrew will not be installed." << endl;
                 install_brew = false;
             }
             script(os, update);
@@ -213,7 +215,8 @@ int main(){
         else if(opcion == 4){
             cout << "OneClickAppInstaller is a simple CLI tool that allows you to create a script to automatically install all of your apps on Windows, macOS or Linux with only one click." << endl;
             cout << "This tool was created by MasterJayanX." << endl;
-            cout << "Version: 1.0.0 (2023.12.12)" << endl;
+            cout << "Version: 1.0.1 (2023.12.14)" << endl;
+            cout << "See the full changelog here: https://github.com/MasterJayanX/OneClickAppInstaller/releases" << endl;
             opcion = START;
         }
         else{

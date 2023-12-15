@@ -140,7 +140,7 @@ void script(string os, string update){
 }
 
 int main(){
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, "spanish");
     int opcion = INICIO;
     string os, update;
     cout << "Bienvenido a OneClickAppInstaller, un software que te permite crear un script que instala aplicaciones de Windows o Linux con un solo clic." << endl;
@@ -161,6 +161,7 @@ int main(){
                 install_winget = true;
             }
             else if(winget == 'n' || winget == 'N'){
+                cout << "No se instalará winget." << endl;
                 install_winget = false;
             }
             else{
@@ -172,7 +173,7 @@ int main(){
         else if(opcion == 2){
             os = "macOS";
             update = "softwareupdate -i -a";
-            cout << "Este script hace uso del gestor de paquetes brew para instalar las aplicaciones. ¿Deseas que el script instale brew? [y/n]" << endl;
+            cout << "Este script hace uso del gestor de paquetes Homebrew para instalar las aplicaciones. ¿Deseas que el script instale Homebrew (brew)? [y/n]" << endl;
             char brew;
             cin >> brew;
             if(brew == 'y' || brew == 'Y'){
@@ -180,9 +181,10 @@ int main(){
             }
             else if(brew == 'n' || brew == 'N'){
                 install_brew = false;
+                cout << "No se instalará Homebrew." << endl;
             }
             else{
-                cout << "Opción no válida. No se instalará brew." << endl;
+                cout << "Opción no válida. No se instalará Homebrew." << endl;
                 install_brew = false;
             }
             script(os, update);
@@ -215,7 +217,8 @@ int main(){
         else if(opcion == 4){
             cout << "OneClickAppInstaller es una herramienta de línea de comandos sencilla que te permite crear un script para instalar todas tus aplicaciones en Windows, macOS o Linux automáticamente con solo un clic." << endl;
             cout << "Esta herramienta fue creada por MasterJayanX." << endl;
-            cout << "Versión: 1.0.0 (2023.12.12)" << endl;
+            cout << "Versión: 1.0.1 (2023.12.14)" << endl;
+            cout << "Revisa el historial de cambios completo aquí: https://github.com/MasterJayanX/OneClickAppInstaller/releases" << endl;
             opcion = INICIO;
         }
         else{
