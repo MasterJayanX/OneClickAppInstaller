@@ -217,6 +217,7 @@ int main(){
             cout << "This tool was created by MasterJayanX." << endl;
             cout << "Version: 1.0.1 (2023.12.14)" << endl;
             cout << "See the full changelog here: https://github.com/MasterJayanX/OneClickAppInstaller/releases" << endl;
+            system("pause");
             opcion = START;
         }
         else{
