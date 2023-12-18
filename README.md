@@ -20,3 +20,10 @@ Linux:
 
 ## Installation
 To install the OneClickAppInstaller Script Creator, you just need to execute the software available on the Releases tab. If you are on Windows, you have to select the .exe file that corresponds to your language of choice and run it. If you are on macOS, Linux or WSL (Windows Subsystem for Linux), you have to select the .sh file that corresponds to your language of choice and run it from the terminal with the following syntax: ./file.sh (replace file with the actual name of the file).
+
+## Compiling
+### Requirements
+- Having the g++ compiler installed on your computer (for Windows users, you can install with MinGW or use WSL).
+
+To compile this program yourself, you need to download the .cpp and .hpp files and save them in the same directory. Alternatively, you can download the repository files using the following command on a terminal window: `git clone https://github.com/MasterJayanX/OneClickAppInstaller`. 
+Then, you have to open a terminal window and compile the .cpp file with the following command: `g++ oneclickscripter.cpp -o output` (you can replace output with any name you want).
