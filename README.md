@@ -23,7 +23,7 @@ To install the OneClickAppInstaller Script Creator, you just need to execute the
 
 ## Compiling
 ### Requirements
-- Having the g++ compiler installed on your computer (for Windows users, you can install with MinGW or use WSL).
+- Having the g++ compiler installed on your computer (for Windows users, you can install it with MinGW or use WSL).
 
 To compile this program yourself, you need to download the .cpp and .hpp files and save them in the same directory. Alternatively, you can download the repository files using the following command on a terminal window: `git clone https://github.com/MasterJayanX/OneClickAppInstaller`. 
 Then, you have to open a terminal window and compile the .cpp file with the following command: `g++ oneclickscripter.cpp -o output` (you can replace output with any name you want).
