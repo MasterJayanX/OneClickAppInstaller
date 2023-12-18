@@ -19,4 +19,11 @@ Linux:
 - Arch/Manjaro y Fedora también son compatibles ahora.
 
 ## Instalación
-Para instalar el Creador de Scripts de OneClickAppInstaller, solo necesita ejecutar el software disponible en la pestaña Lanzamientos (Releases). Si está en Windows, debe seleccionar el archivo .exe que corresponda al idioma de su elección y ejecutarlo. Si está en macOS, Linux o WSL (Subsistema de Windows para Linux), debe seleccionar el archivo .sh que corresponda al idioma de su elección y ejecutarlo desde la terminal con la siguiente sintaxis: ./archivo.sh (reemplace archivo por el verdadero nombre del archivo).
+Para instalar el Creador de Scripts de OneClickAppInstaller, solo necesitas ejecutar el software disponible en la pestaña Lanzamientos (Releases). Si estás en Windows, debe seleccionar el archivo .exe que corresponda al idioma de su elección y ejecutarlo. Si estás en macOS, Linux o WSL (Subsistema de Windows para Linux), debes seleccionar el archivo .sh que corresponda al idioma de su elección y ejecutarlo desde la terminal con la siguiente sintaxis: ./archivo.sh (reemplace archivo por el verdadero nombre del archivo).
+
+## Compilar
+### Requisitos
+- Tener instalado el compilador g++ en tu computadora (para usuarios de Windows, puedes instalar con MinGW o usar WSL).
+
+Para compilar este programa tú mismo, debes descargar los archivos .cpp y .hpp y guardarlos en el mismo directorio. Alternativamente, puedes descargar los archivos del repositorio usando el siguiente comando en una ventana de terminal: `git clone https://github.com/MasterJayanX/OneClickAppInstaller`.
+Luego, debes abrir una ventana de terminal y compilar el archivo .cpp con el siguiente comando: `g++ oneclickscripter.cpp -o salida` (puedes reemplazar la salida con el nombre que desee).
