@@ -1,7 +1,7 @@
 # OneClickAppInstaller
 [![GitHub release](https://img.shields.io/github/v/release/MasterJayanX/OneClickAppInstaller.svg)](https://github.com/MasterJayanX/OneClickAppInstaller/releases)
 ### Langages
-[English](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README.md) | [Español](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README_ES.md)
+[English](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README.md) | [Español](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README_ES.md) | [Francais](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README_FR.md)
 ## Description
 OneClickAppInstaller est un simple outil de ligne de commandes qui vous permet de créer un script pour installer automatiquement toutes vos applications sur Windows, macOS ou Linux en un seul clic.
 ## Exigences
