@@ -7,7 +7,7 @@ OneClickAppInstaller est un simple outil de ligne de commandes qui vous permet d
 ## Exigences
 Windows:
 
-- Windows 10 ou supérieur. Le logiciel peut fonctionner sur les anciennes versions de Windows, mais le script résultant ne s'exécutera que sur Windows 10 ou supérieur car il utilise [winget](https://github.com/microsoft/winget-cli "winget") pour installer paquets.
+- Windows 10 ou supérieur. Le logiciel peut fonctionner sur les anciennes versions de Windows, mais le script résultant ne s'exécutera que sur Windows 10 ou supérieur car il utilise [winget](https://github.com/microsoft/winget-cli "winget") pour installer les applications.
 
 macOS :
 
@@ -25,7 +25,7 @@ Si vous êtes sous macOS, Linux ou WSL (Windows Subsystem for Linux), vous devez
 
 ## Compilation
 ### Exigences
-- Avoir le compilateur g++ installé sur votre ordinateur (pour les utilisateurs Windows, vous pouvez l'installer avec MinGW ou utiliser WSL).
+- Avoir le compilateur g++ installé sur votre ordinateur (pour les utilisateurs de Windows, vous pouvez l'installer avec MinGW ou utiliser WSL).
 
 Pour compiler ce programme vous-même, vous devez télécharger les fichiers .cpp et .hpp et les enregistrer dans le même répertoire. Vous pouvez également télécharger les fichiers du référentiel à l'aide de la commande suivante sur une fenêtre de terminal : `git clone https://github.com/MasterJayanX/OneClickAppInstaller`.
 Ensuite, vous devez ouvrir une fenêtre de terminal et compiler le fichier .cpp avec la commande suivante : `g++ oneclickscripter.cpp -o output` (vous pouvez remplacer output par un nom de votre choix).
