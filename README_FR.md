@@ -16,7 +16,7 @@ macOS :
 Linux :
 
 - Ubuntu ou Debian (toute version actuellement prise en charge devrait fonctionner). D'autres distributions basées sur Ubuntu ou Debian fonctionneront également.
-- Arch/Manjaro et Fedora sont également désormais pris en charge.
+- Arch/Manjaro, Fedora et OpenSUSE sont également désormais pris en charge.
 
 ## Installation
 Pour installer le créateur de scripts de OneClickAppInstaller, il vous suffit d'exécuter le logiciel disponible dans l'onglet Releases. Si vous êtes sous Windows, vous devez sélectionner le fichier .exe qui correspond à la langue de votre choix et l'exécuter. 
