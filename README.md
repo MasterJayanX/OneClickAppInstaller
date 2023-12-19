@@ -27,3 +27,8 @@ To install the OneClickAppInstaller Script Creator, you just need to execute the
 
 To compile this program yourself, you need to download the .cpp and .hpp files and save them in the same directory. Alternatively, you can download the repository files using the following command on a terminal window: `git clone https://github.com/MasterJayanX/OneClickAppInstaller`. 
 Then, you have to open a terminal window and compile the .cpp file with the following command: `g++ oneclickscripter.cpp -o output` (you can replace output with any name you want).
+
+## Donations
+I accept donations through Ko-fi:
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/D1D37FMC3)
