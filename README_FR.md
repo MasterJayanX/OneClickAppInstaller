@@ -29,3 +29,8 @@ Si vous êtes sous macOS, Linux ou WSL (Windows Subsystem for Linux), vous devez
 
 Pour compiler ce programme vous-même, vous devez télécharger les fichiers .cpp et .hpp et les enregistrer dans le même répertoire. Vous pouvez également télécharger les fichiers du référentiel à l'aide de la commande suivante sur une fenêtre de terminal : `git clone https://github.com/MasterJayanX/OneClickAppInstaller`.
 Ensuite, vous devez ouvrir une fenêtre de terminal et compiler le fichier .cpp avec la commande suivante : `g++ oneclickscripter.cpp -o output` (vous pouvez remplacer output par un nom de votre choix).
+
+## Donations
+J'accepte des donations sur Ko-fi:
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/D1D37FMC3)
