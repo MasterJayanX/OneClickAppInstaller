@@ -16,7 +16,7 @@ macOS:
 Linux:
 
 - Ubuntu or Debian (any currently supported version should work). Other Ubuntu-based or Debian-based distros will work as well.
-- Arch/Manjaro and Fedora are also supported now.
+- Arch/Manjaro, Fedora and OpenSUSE are also supported now.
 
 ## Installation
 To install the OneClickAppInstaller Script Creator, you just need to execute the software available on the Releases tab. If you are on Windows, you have to select the .exe file that corresponds to your language of choice and run it. If you are on macOS, Linux or WSL (Windows Subsystem for Linux), you have to select the .sh file that corresponds to your language of choice and run it from the terminal with the following syntax: ./file.sh (replace file with the actual name of the file).
