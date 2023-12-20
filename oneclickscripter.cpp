@@ -1,4 +1,3 @@
-// -*- coding: utf-8 -*-
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -14,6 +13,7 @@ using namespace std;
 bool install_winget = false;
 bool install_brew = false;
 string language;
+int s;
 
 void programas(string os, ofstream& script, Translator translator){
     char opcion = 'y';
@@ -24,7 +24,14 @@ void programas(string os, ofstream& script, Translator translator){
             cout << translator.translate("addapps") << endl;
             cin >> opcion;
         }
-        if(opcion == 'n' || opcion == 'N'){
+        else{
+            cout << translator.translate("addmoreapps") << endl;
+            cin >> opcion;
+        }
+        if(opcion != 'y' && opcion != 'Y'){
+            if(os == "Ubuntu/Debian"){
+                script << "sudo apt autoremove -y" << endl;
+            }
             break;
         }
         cout << "" << endl;
@@ -54,7 +61,7 @@ void programas(string os, ofstream& script, Translator translator){
                 cout << translator.translate("forflatpak") << endl;
             }
             else{
-                cout << translator.translate("nonvalid") << endl;
+                cout << translator.translate("invalid") << endl;
                 opcion = 1;
             }
             first = false;
@@ -83,12 +90,10 @@ void programas(string os, ofstream& script, Translator translator){
             instruccion = "flatpak install " + pack + " -y";
         }
         else{
-            cout << translator.translate("nonvalid") << endl;
+            cout << translator.translate("invalid") << endl;
             opcion = 1;
         }
         script << instruccion << endl;
-        cout << translator.translate("addmoreapps") << endl;
-        cin >> opcion;
     }
 }
 
@@ -106,10 +111,23 @@ void script(string os, string update, Translator translator){
     if(personalizado == 'y' || personalizado == 'Y'){
         cout << translator.translate("customname") << endl;
         cin >> nombre;
+        if(nombre == "ascii_shrek"){
+            s = 1;
+            secrets(s, translator);
+        }
+        else if(nombre == "among_us" || nombre == "amongus"){
+            s = 3;
+            secrets(s, translator);
+        }
         nombre += ext;
     }
     else if(personalizado == 'n' || personalizado == 'N'){
-        nombre = os + ext;
+        if(os == "Ubuntu/Debian"){
+            nombre = "ubuntu-debian" + ext;
+        }
+        else{
+            nombre = os + ext;
+        }
     }
     else{
         cout << translator.translate("nocustomname") << endl;
@@ -125,6 +143,10 @@ void script(string os, string update, Translator translator){
         cout << translator.translate("welcomemsg") << endl;
         cin.ignore();
         getline(cin, mensaje);
+        if(mensaje == "Skibidi Toilet"){
+            s = 2;
+            secrets(s, translator);
+        }
         if(os == "Windows"){
             script << "@echo off" << endl;
             script << "echo " << mensaje << endl;
@@ -136,21 +158,15 @@ void script(string os, string update, Translator translator){
     }
     else if(msj == 'n' || msj == 'N'){
         cout << translator.translate("nowelcomemsg") << endl;
-        if(os == "Windows"){
-            script << "@echo off" << endl;
-        }
-        else{
-            script << "#!/bin/bash" << endl;
-        }
     }
     else{
-        cout << translator.translate("nonvalid") << endl;
-        if(os == "Windows"){
-            script << "@echo off" << endl;
-        }
-        else{
-            script << "#!/bin/bash" << endl;
-        }
+        cout << translator.translate("invalid") << endl;
+    }
+    if(os == "Windows"){
+        script << "@echo off" << endl;
+    }
+    else{
+        script << "#!/bin/bash" << endl;
     }
     if(os == "Windows"){
         if(install_winget){
@@ -171,7 +187,7 @@ void script(string os, string update, Translator translator){
 }
 
 int main(){
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, "en_US.UTF-8");
     int opcion = INICIO;
     string os, update;
     int lang;
@@ -210,7 +226,7 @@ int main(){
                     install_winget = false;
                 }
                 else{
-                    cout << translator.translate("nonvalid") << endl;
+                    cout << translator.translate("invalid") << endl;
                     install_winget = false;
                 }
             }
@@ -231,7 +247,7 @@ int main(){
                     cout << translator.translate("nohomebrew") << endl;
                 }
                 else{
-                    cout << translator.translate("nonvalid") << endl;
+                    cout << translator.translate("invalid") << endl;
                     install_brew = false;
                 }
             }
@@ -265,7 +281,7 @@ int main(){
                 opcion = INICIO;
             }
             else{
-                cout << translator.translate("nonvalid") << endl;
+                cout << translator.translate("invalid") << endl;
                 opcion = INICIO;
             }
             if(opcion2 != 6 && opcion != INICIO){
@@ -277,17 +293,17 @@ int main(){
             cout << translator.translate("about2") << endl;
             cout << translator.translate("about3") << endl;
             cout << translator.translate("about4") << endl;
-            cout << translator.translate("presskey") << endl;
+            cout << translator.translate("pressenter") << endl;
             cin.ignore();
             cin.get();
             opcion = INICIO;
         }
         else{
-            cout << translator.translate("nonvalid") << endl;
+            cout << translator.translate("invalid") << endl;
             opcion = INICIO;
         }
     }
-    cout << translator.translate("presskey") << endl;
+    cout << translator.translate("pressenter") << endl;
     cin.ignore();
     cin.get();
     return 0;
