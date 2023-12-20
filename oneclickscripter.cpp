@@ -191,7 +191,11 @@ int main(){
     int opcion = INICIO;
     string os, update;
     int lang;
+<<<<<<< Updated upstream
     cout << "Select your language / Selecciona tu idioma: " << endl << "1. English" << endl << "2. Español" << endl;
+=======
+    cout << "Select your language / Selecciona tu idioma: " << endl << "1. English" << endl << "2. Español" << endl << "3. Other / Otro" << endl;
+>>>>>>> Stashed changes
     cin >> lang;
     if(lang == 1){
         language = "en";
@@ -199,6 +203,13 @@ int main(){
     else if(lang == 2){
         language = "es";
     }
+<<<<<<< Updated upstream
+=======
+    else if(lang == 3){
+        cout << "Enter your language file: ";
+        cin >> language;
+    }
+>>>>>>> Stashed changes
     else{
         cout << "Invalid option." << endl;
         return 0;

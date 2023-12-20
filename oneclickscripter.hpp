@@ -110,6 +110,26 @@ private:
             translations["pressenter"] = "Presiona Enter para salir...";
             translations["cringe"] = "Bruh, das cringe.";
         }
+<<<<<<< Updated upstream
+=======
+        else{
+            ifstream file(language + ".txt");
+            if (!file.is_open()) {
+                cerr << "Unable to open file: " << language + ".txt" << endl;
+                return;
+            }
+            string line;
+            while (getline(file, line)) {
+                size_t delimiterPos = line.find('=');
+                if (delimiterPos != string::npos) {
+                    string key = line.substr(0, delimiterPos);
+                    string value = line.substr(delimiterPos + 1);
+                    translations[key] = value;
+                }
+            }
+        file.close();
+        }
+>>>>>>> Stashed changes
     }
 };
 void secrets(int s, Translator translator){
