@@ -28,7 +28,7 @@ Follow these steps to use OneClickAppInstaller:
 3. If you choose Windows or macOS, the program will ask you if you want the script to install winget (for Windows) or Homebrew (for macOS). Press y if you want the script to install this tool or n if you have it installed already (you will most likely have winget installed if you have Windows 11, so you can just press n).
 4. The program will now ask you if you want a custom name for your script. Press y if you want to name the script or n if you don't want to. Keep in mind that you can rename your file at any point. Then, it will ask you if you want to have a custom welcome message. This is a line of text that will show up when you run the script. Press y if you want to enter a custom welcome message or n if you don't want to.
 5. After the early setup, you have to enter the names of the applications you want to install using your script. Keep in mind that you have to enter the names of your applications using a specific syntax depending on your operating system and/or package manager. If you want to know what applications you can install on your operating system, go to the website linked on the program.
-6. Press y when asked if you want to install applications to add apps to your script. After you're done adding applications, just press n when asked if you want to add more applications.
+6. Press y when asked if you want to add applications to your script. After you're done, just press n when asked if you want to add more applications.
 
 ## Compiling
 ### Requirements
