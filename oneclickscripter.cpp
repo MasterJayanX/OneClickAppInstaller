@@ -6,7 +6,8 @@
 #include <map>
 #include <unistd.h>
 #include "oneclickscripter.hpp"
-/*Programa hecho por MasterJayanX*/
+
+// Programa hecho por MasterJayanX
 #define START 1000
 
 using namespace std;
@@ -14,12 +15,14 @@ using namespace std;
 bool install_winget = false;
 bool install_brew = false;
 string language;
+string version = "v1.1.2 (2023-12-21)";
 int s;
 
 void programas(string os, ofstream& script, Translator translator){
     char option = 'y';
     bool first = true;
     string pack, instruction;
+    // Step 5: Choose the applications you want the script to install
     while(option == 'y' || option == 'Y'){
         if(first){
             cout << translator.translate("addapps") << endl;
@@ -30,7 +33,10 @@ void programas(string os, ofstream& script, Translator translator){
             cin >> option;
         }
         if(option != 'y' && option != 'Y'){
+            // No more applications to install
+            cout << translator.translate("nomoreapps") << endl;
             if(os == "Ubuntu/Debian"){
+                // This command removes unnecessary packages on Ubuntu, Debian or Ubuntu/Debian-based distros
                 script << "sudo apt autoremove -y" << endl;
             }
             break;
@@ -70,24 +76,31 @@ void programas(string os, ofstream& script, Translator translator){
         cout << translator.translate("packagename");
         cin >> pack;
         if(os == "Windows"){
+            // This command installs your applications on Windows 10/11
             instruction = "winget install " + pack;
         }
         else if(os == "macOS"){
+            // This command installs your applications on macOS
             instruction = "brew install " + pack;
         }
         else if(os == "Ubuntu/Debian"){
+            // This command installs your applications on Ubuntu, Debian or Ubuntu/Debian-based distros
             instruction = "sudo apt install " + pack + " -y";
         }
         else if(os == "Arch"){
+            // This command installs your applications on Arch Linux or Arch-based distros
             instruction = "sudo pacman -S " + pack + " --noconfirm";
         }
         else if(os == "Fedora"){
+            // This command installs your applications on Fedora or Fedora-based distros
             instruction = "sudo dnf install " + pack + " -y";
         }
         else if(os == "OpenSUSE"){
+            // This command installs your applications on SUSE Linux or OpenSUSE
             instruction = "sudo zypper install " + pack + " -y";
         }
         else if(os == "Flatpak"){
+            // This command installs your applications on any distro that supports Flatpak
             instruction = "flatpak install " + pack + " -y";
         }
         else{
@@ -107,6 +120,7 @@ void script(string os, string update, Translator translator){
     else{
         ext = ".sh";
     }
+    // Step 3: Choose a name for your script (if you want a custom name)
     cout << translator.translate("qcustomname") << endl;
     cin >> customname;
     if(customname == 'y' || customname == 'Y'){
@@ -141,6 +155,7 @@ void script(string os, string update, Translator translator){
     ofstream script;
     script.open(filename);
     char msj;
+    // Step 4: Choose if you want to add a welcome message
     cout << translator.translate("qwelcomemsg") << endl;
     cin >> msj;
     if(msj == 'y' || msj == 'Y'){
@@ -176,12 +191,14 @@ void script(string os, string update, Translator translator){
     if(os == "Windows"){
         if(install_winget){
             script << "echo " + translator.translate("instwinget") << endl;
+            // This command installs winget on Windows 10/11
             script << "powershell -command \"Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\"" << endl;
         }
     }
     if(os == "macOS"){
         if(install_brew){
             script << "echo " + translator.translate("instbrew") << endl;
+            // This command installs Homebrew on macOS
             script << "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"" << endl;
         }
     }
@@ -196,6 +213,7 @@ int main(){
     int option = START;
     string os, update;
     int lang;
+    // Step 1: Choose your language
     cout << "Select your language / Selecciona tu idioma: " << endl << "1. English" << endl << "2. Español" << endl << "3. Other / Otro" << endl;
     cin >> lang;
     if(lang == 1){
@@ -210,30 +228,30 @@ int main(){
     }
     else{
         cerr << "Invalid option. / Opción no válida." << endl;
-        cout << "Press enter to exit. / Presiona enter para salir." << endl;
+        cout << "Press Enter to exit. / Presiona Enter para salir." << endl;
         cin.ignore();
         cin.get();
         return 0;
     }
     Translator translator(language);
     if(lang_file_opened == false){
-        cout << "Press enter to exit. / Presiona enter para salir." << endl;
+        cout << "Press Enter to exit. / Presiona Enter para salir." << endl;
         cin.ignore();
         cin.get();
         return 0;
     }
+    // Step 2: Choose an operating system
     cout << translator.translate("welcome") << endl;
     while(option == START){
         cout << translator.translate("option") << endl << translator.translate("opt1") << endl << translator.translate("opt2") << endl << translator.translate("opt3") << endl << translator.translate("opt4") << endl << translator.translate("opt5") << endl;
         cin >> option;
-        if(option == 5){
-            return 0;
-        }
-        else if(option == 1){
+        if(option == 1){
+            // Windows
             os = "Windows";
             update = "winget upgrade -h --all";
             char winget = 'a';
             while(winget != 'y' && winget != 'Y' && winget != 'n' && winget != 'N'){
+                // If you chose Windows, choose if you want to install winget
                 cout << translator.translate("winget") << endl;
                 cin >> winget;
                 if(winget == 'y' || winget == 'Y'){
@@ -251,10 +269,12 @@ int main(){
             script(os, update, translator);
         }
         else if(option == 2){
+            // macOS
             os = "macOS";
             update = "softwareupdate -i -a";
             char brew = 'a';
             while(brew != 'y' && brew != 'Y' && brew != 'n' && brew != 'N'){
+                // If you chose macOS, choose if you want to install Homebrew
                 cout << translator.translate("homebrew") << endl;
                 cin >> brew;
                 if(brew == 'y' || brew == 'Y'){
@@ -272,7 +292,9 @@ int main(){
             script(os, update, translator);
         }
         else if(option == 3){
+            // Linux
             int option2;
+            // If you chose Linux, choose your distro
             cout << translator.translate("distro") << endl << "1. Ubuntu/Debian" << endl << "2. Arch" << endl << "3. Fedora" << endl << "4. OpenSUSE" << endl << "5. " << translator.translate("flat") << endl << "6. " << translator.translate("distroback") << endl;
             cin >> option2;
             if(option2 == 1){
@@ -307,15 +329,20 @@ int main(){
             }
         }
         else if(option == 4){
+            // About
             cout << translator.translate("about1") << endl;
             cout << translator.translate("about2") << endl;
-            cout << translator.translate("about3") << endl;
+            cout << translator.translate("about3") << " " << version << endl;
             cout << translator.translate("about4") << endl;
             sleep(0.8);
             cout << translator.translate("pressenter") << endl;
             cin.ignore();
             cin.get();
             option = START;
+        }
+        else if(option == 5){
+            // Exit
+            return 0;
         }
         else{
             cout << translator.translate("invalid") << endl;

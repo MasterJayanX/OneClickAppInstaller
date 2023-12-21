@@ -1,4 +1,4 @@
-welcome=Welcome to OneClickAppInstaller, a software that allows you to create a script that installs Windows or Linux applications with a single click. This software was created by MasterJayanX.
+welcome=Welcome to OneClickAppInstaller, a software that allows you to create a script that installs Windows, macOS or Linux applications with a single click. This software was created by MasterJayanX.
 option=Select an option:
 opt1=1. Create script for Windows
 opt2=2. Create script for macOS
@@ -37,7 +37,8 @@ forflatpak=For Flatpak users, you can find valid package names here: https://fla
 packagename=Enter the package name here:
 about1=OneClickAppInstaller is a simple CLI tool that allows you to create a script to automatically install all of your apps on Windows, macOS or Linux with just one click.
 about2=This tool was created by MasterJayanX.
-about3=Version: *insert version number here*
-about4=Check out the full changelog here: https://github.com/MasterJayanX/OneClickAppInstaller/releases
+about3=Version:
+about4=Check out the full release history here: https://github.com/MasterJayanX/OneClickAppInstaller/releases
+nomoreapps=No more applications will be added.
 pressenter=Press Enter to exit...
 cringe=Bruh, you're cringe.
