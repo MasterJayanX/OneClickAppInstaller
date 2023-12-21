@@ -2,8 +2,11 @@
 #include <map>
 #include <string>
 #include <fstream>
+#include <unistd.h>
 
 using namespace std;
+
+bool lang_file_opened = true;
 
 class Translator {
 public:
@@ -60,7 +63,7 @@ private:
             translations["packagename"] = "Enter the package name here: ";
             translations["about1"] = "OneClickAppInstaller is a simple CLI tool that allows you to create a script to automatically install all of your apps on Windows, macOS or Linux with just one click.";
             translations["about2"] = "This tool was created by MasterJayanX.";
-            translations["about3"] = "Version: 1.1.1 (2023-12-20)";
+            translations["about3"] = "Version: 1.1.2 (2023-12-20)";
             translations["about4"] = "Check out the full changelog here: https://github.com/MasterJayanX/OneClickAppInstaller/releases";
             translations["pressenter"] = "Press Enter to exit...";
             translations["cringe"] = "Bruh, you're cringe.";
@@ -105,17 +108,16 @@ private:
             translations["packagename"] = "Escribe el nombre del paquete aquí: ";
             translations["about1"] = "OneClickAppInstaller es una herramienta de línea de comandos sencilla que te permite crear un script para instalar todas tus aplicaciones en Windows, macOS o Linux automáticamente con solo un clic.";
             translations["about2"] = "Esta herramienta fue creada por MasterJayanX.";
-            translations["about3"] = "Versión: 1.1.1 (2023-12-20)";
+            translations["about3"] = "Versión: 1.1.2 (2023-12-20)";
             translations["about4"] = "Revisa el historial de cambios completo aquí: https://github.com/MasterJayanX/OneClickAppInstaller/releases";
             translations["pressenter"] = "Presiona Enter para salir...";
             translations["cringe"] = "Bruh, das cringe.";
         }
-<<<<<<< Updated upstream
-=======
         else{
-            ifstream file(language + ".txt");
+            ifstream file(language);
             if (!file.is_open()) {
-                cerr << "Unable to open file: " << language + ".txt" << endl;
+                cerr << "Language file not found. / Archivo de idioma no encontrado." << endl;
+                lang_file_opened = false;
                 return;
             }
             string line;
@@ -127,9 +129,8 @@ private:
                     translations[key] = value;
                 }
             }
-        file.close();
+            file.close();
         }
->>>>>>> Stashed changes
     }
 };
 void secrets(int s, Translator translator){
@@ -161,5 +162,24 @@ void secrets(int s, Translator translator){
         cout << "sus" << endl;
         amongus << "ඞ" << endl;
         amongus.close();
+    }
+    else if(s == 4){
+        float pausa = 1.8;
+        cout << "Chipi chipi, chapa chapa" << endl;
+        sleep(pausa);
+        cout << "Dubi dubi, daba daba" << endl;
+        sleep(pausa);
+        cout << "Mágico mi dubi dubi" << endl;
+        sleep(pausa);
+        cout << "Boom boom boom boom" << endl;
+        sleep(pausa);
+        cout << "Chipi chipi, chapa chapa" << endl;
+        sleep(pausa);
+        cout << "Dubi dubi, daba daba" << endl;
+        sleep(pausa);
+        cout << "Mágico mi dubi dubi" << endl;
+        sleep(pausa);
+        cout << "Boom" << endl;
+        sleep(1);
     }
 }
