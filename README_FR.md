@@ -19,7 +19,7 @@ Linux :
 - Arch/Manjaro, Fedora et OpenSUSE sont également désormais pris en charge.
 
 ## Installation
-Pour installer le créateur de scripts de OneClickAppInstaller, il vous suffit d'exécuter le logiciel disponible dans l'onglet Releases. Si vous êtes sous Windows, vous devez sélectionner le fichier .exe qui correspond à la langue de votre choix et l'exécuter. 
+Pour installer le créateur de scripts de OneClickAppInstaller, il vous suffit de télécharger et exécuter le logiciel disponible dans l'onglet Releases. Si vous êtes sous Windows, vous devez sélectionner le fichier .exe qui correspond à la langue de votre choix et l'exécuter. 
 Si vous êtes sous macOS, Linux ou WSL (Windows Subsystem for Linux), vous devez sélectionner le fichier .sh qui correspond à la langue de votre choix et l'exécuter depuis le terminal avec la syntaxe suivante : ./file.sh 
 (remplacer file avec le nom réel du fichier).
 
