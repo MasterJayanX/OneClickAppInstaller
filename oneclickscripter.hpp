@@ -2,26 +2,34 @@
 #include <map>
 #include <string>
 #include <fstream>
+#include <unistd.h>
 
 using namespace std;
+
+bool lang_file_opened = true;
 
 class Translator {
 public:
     Translator(const string& language) {
+        // This constructor calls the loadTranslations function
         loadTranslations(language);
     }
 
     string translate(const string& key) const {
+        // This function returns the translation of a string
         auto it = translations.find(key);
         return (it != translations.end()) ? it->second : "Translation not found";
     }
 
 private:
+    // This map contains the translations for each language
     map<string, string> translations;
 
     void loadTranslations(const string& language) {
+        // This function loads the translations for each language
         if (language == "en") {
-            translations["welcome"] = "Welcome to OneClickAppInstaller, a software that allows you to create a script that installs Windows or Linux applications with a single click. This software was created by MasterJayanX.";
+            // English
+            translations["welcome"] = "Welcome to OneClickAppInstaller, a software that allows you to create a script that installs Windows, macOS or Linux applications with a single click. This software was created by MasterJayanX.";
             translations["option"] = "Select an option: ";
             translations["opt1"] = "1. Create script for Windows";
             translations["opt2"] = "2. Create script for macOS";
@@ -52,7 +60,7 @@ private:
             translations["formacos"] = "For macOS (brew) users, you can find valid package names here: https://formulae.brew.sh (you don't need to copy the part that says brew install, just the package name).";
             translations["forubuntu"] = "For Ubuntu (apt) users, you can find valid package names here: https://packages.ubuntu.com/ (you don't need to copy the part that says sudo apt install, just the package name).";
             translations["fordebian"] = "For Debian (apt) users, you can find valid package names here: https://packages.debian.org/en/ (also you don't need to copy the part that says sudo apt install, just the package name).";
-            translations["forotherapt"] = "For other Ubuntu or Debian based distributions, you can find valid package names on their respective websites.";
+            translations["forotherapt"] = "For other Ubuntu-based or Debian-based distributions, you can find valid package names on their respective websites.";
             translations["forarch"] = "For Arch (pacman) users, you can find valid package names here: https://archlinux.org/packages/ (you don't need to copy the part that says sudo pacman -S, just the package name).";
             translations["forfedora"] = "For Fedora (dnf) users, you can find valid package names here: https://apps.fedoraproject.org/packages/ (no need to copy the part that says sudo dnf install, just the package name) .";
             translations["foropensuse"] = "For OpenSUSE (zypper) users, you can find valid package names here: https://software.opensuse.org/ (you don't need to copy the part that says sudo zypper install, just the package name).";
@@ -60,13 +68,15 @@ private:
             translations["packagename"] = "Enter the package name here: ";
             translations["about1"] = "OneClickAppInstaller is a simple CLI tool that allows you to create a script to automatically install all of your apps on Windows, macOS or Linux with just one click.";
             translations["about2"] = "This tool was created by MasterJayanX.";
-            translations["about3"] = "Version: 1.1.1 (2023-12-20)";
-            translations["about4"] = "Check out the full changelog here: https://github.com/MasterJayanX/OneClickAppInstaller/releases";
+            translations["about3"] = "Version: ";
+            translations["about4"] = "Check out the full release history here: https://github.com/MasterJayanX/OneClickAppInstaller/releases";
+            translations["nomoreapps"] = "No more applications will be added.";
             translations["pressenter"] = "Press Enter to exit...";
             translations["cringe"] = "Bruh, you're cringe.";
         } 
         else if (language == "es") {
-            translations["welcome"] = "Bienvenido a OneClickAppInstaller, un software que te permite crear un script que instala aplicaciones de Windows o Linux con un solo clic. Este software fue creado por MasterJayanX.";
+            // Spanish
+            translations["welcome"] = "Bienvenido a OneClickAppInstaller, un software que te permite crear un script que instala aplicaciones de Windows, macOS o Linux con un solo clic. Este software fue creado por MasterJayanX.";
             translations["option"] = "Selecciona una opción: ";
             translations["opt1"] = "1. Crear script para Windows";
             translations["opt2"] = "2. Crear script para macOS";
@@ -105,17 +115,39 @@ private:
             translations["packagename"] = "Escribe el nombre del paquete aquí: ";
             translations["about1"] = "OneClickAppInstaller es una herramienta de línea de comandos sencilla que te permite crear un script para instalar todas tus aplicaciones en Windows, macOS o Linux automáticamente con solo un clic.";
             translations["about2"] = "Esta herramienta fue creada por MasterJayanX.";
-            translations["about3"] = "Versión: 1.1.1 (2023-12-20)";
-            translations["about4"] = "Revisa el historial de cambios completo aquí: https://github.com/MasterJayanX/OneClickAppInstaller/releases";
+            translations["about3"] = "Versión:";
+            translations["about4"] = "Revisa el historial de versiones completo aquí: https://github.com/MasterJayanX/OneClickAppInstaller/releases";
+            translations["nomoreapps"] = "No se agregarán más aplicaciones.";
             translations["pressenter"] = "Presiona Enter para salir...";
             translations["cringe"] = "Bruh, das cringe.";
+        }
+        else{
+            // Open a language file
+            ifstream file(language);
+            if (!file.is_open()) {
+                cerr << "Language file not found. / Archivo de idioma no encontrado." << endl;
+                lang_file_opened = false;
+                return;
+            }
+            string line;
+            while (getline(file, line)) {
+                size_t delimiterPos = line.find('=');
+                if (delimiterPos != string::npos) {
+                    string key = line.substr(0, delimiterPos);
+                    string value = line.substr(delimiterPos + 1);
+                    translations[key] = value;
+                }
+            }
+            file.close();
         }
     }
 };
 void secrets(int s, Translator translator){
+    // Secrets
     if(s == 1){
+        // Shrek
         ofstream shrek("shrek.txt");
-        shrek << "Shrek is love, Shrek is life." << endl;
+        shrek << "Shrek is love, Shrek is life." << endl; // This line was generated by Copilot
         shrek << "⢀⡴⠑⡄⠀⠀⠀⠀⠀⠀⠀⣀⣀⣤⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n"
                 << "⠸⡇⠀⠿⡀⠀⠀⠀⣀⡴⢿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n"
                 << "⠀⠀⠀⠀⠑⢄⣠⠾⠁⣀⣄⡈⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀\n"
@@ -134,12 +166,37 @@ void secrets(int s, Translator translator){
         shrek.close();
     }
     else if(s == 2){
+        // Cringe
         cout << translator.translate("cringe") << endl;
     }
     else if(s == 3){
+        /*Among Us is a video game developed by Innersloth LLC. It was released on June 15, 2018 on iOS and Android, and on August 18, 2018 on Steam. 
+        The game is about a group of crew members aboard a spaceship. One of them is an impostor who will kill the other crew members. 
+        The crew members must find out who the impostor is and vote him out of the ship. The impostor must kill all the crew members without being discovered. 
+        The game has become very popular in 2020, and has been played by many famous YouTubers and Twitch streamers. Thanks for the description, Copilot.*/ 
         ofstream amongus("amongus.txt");
         cout << "sus" << endl;
         amongus << "ඞ" << endl;
         amongus.close();
+    }
+    else if(s == 4){
+        // Dubidubidu
+        float pausa = 1.8;
+        cout << "Chipi chipi, chapa chapa" << endl;
+        sleep(pausa);
+        cout << "Dubi dubi, daba daba" << endl;
+        sleep(pausa);
+        cout << "Mágico mi dubi dubi" << endl; // It's not Magic Pony, you know?
+        sleep(pausa);
+        cout << "Boom boom boom boom" << endl;
+        sleep(pausa);
+        cout << "Chipi chipi, chapa chapa" << endl;
+        sleep(pausa);
+        cout << "Dubi dubi, daba daba" << endl;
+        sleep(pausa);
+        cout << "Mágico mi dubi dubi" << endl;
+        sleep(pausa);
+        cout << "Boom" << endl;
+        sleep(1);
     }
 }
