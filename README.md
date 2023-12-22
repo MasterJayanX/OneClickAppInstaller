@@ -37,6 +37,18 @@ Follow these steps to use OneClickAppInstaller:
 To compile this program yourself, you need to download the .cpp and .hpp files and save them in the same directory. Alternatively, you can download the repository files using the following command on a terminal window: `git clone https://github.com/MasterJayanX/OneClickAppInstaller`. 
 Then, you have to open a terminal window and compile the .cpp file with the following command: `g++ oneclickscripter.cpp -o output` (you can replace output with any name you want).
 
+## FAQ (Frequently Asked Questions)
+### What operating systems are supported by this software?
+The officially supported operating systems at the moment are: Windows 10/11, macOS, Ubuntu, Debian, Arch Linux, Fedora and OpenSUSE. The software itself will run on anything that can run .sh files, but it can only create scripts for the aforementioned operating systems.
+### Are there any operating systems that will be supported in the future?
+I plan on adding compatibility with RHEL (Red Hat Enterprise Linux) in the next release.
+### I found a bug or the software is just not working well. Where can I report these issues?
+You can open a new issue in the Issues section and I will take care of it as soon as I can.
+### How can I use my own language files?
+After creating your language file based on the template file, you just need to save it in the same folder you have the OneClickAppInstaller executable in. Then, in the language section, choose "Other / Otro" and when prompted to enter the name of your file, just enter the name of the file you created (including the extension).
+### How can I share my language files?
+Currently, you can't, but you can send them to me to my social media (my social media pages are in [my profile](https://github.com/MasterJayanX)).
+
 ## Donations
 I accept donations through Ko-fi:
 

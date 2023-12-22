@@ -37,7 +37,18 @@ Sigue estos pasos para utilizar OneClickAppInstaller:
 Para compilar este programa tú mismo, debes descargar los archivos .cpp y .hpp y guardarlos en el mismo directorio. Alternativamente, puedes descargar los archivos del repositorio usando el siguiente comando en una ventana de terminal: `git clone https://github.com/MasterJayanX/OneClickAppInstaller`.
 Luego, debes abrir una ventana de terminal y compilar el archivo .cpp con el siguiente comando: `g++ oneclickscripter.cpp -o salida` (puedes reemplazar la salida con el nombre que desee).
 
+## Preguntas frecuentes
+### ¿Qué sistemas operativos son compatibles con este software?
+Los sistemas operativos oficialmente soportados en este momento son: Windows 10/11, macOS, Ubuntu, Debian, Arch Linux, Fedora y OpenSUSE. El software en sí se ejecutará en cualquier cosa que pueda ejecutar archivos .sh, pero sólo puede crear scripts para los sistemas operativos antes mencionados.
+### ¿Hay algún sistema operativo que será compatible en el futuro?
+Planeo agregar compatibilidad con RHEL (Red Hat Enterprise Linux) en la próxima versión.
+### Encontré un error o el software simplemente no funciona bien. ¿Dónde puedo informar estos problemas?
+Puede abrir un nuevo problema en la sección Problemas y me ocuparé de ello tan pronto como pueda.
+### ¿Cómo puedo utilizar mis propios archivos de idioma?
+Después de crear tu archivo de idioma basado en el archivo de plantilla, solo necesitas guardarlo en la misma carpeta donde tienes el ejecutable OneClickAppInstaller. Luego, en la sección de idioma, elige "Other / Otro" y cuando se te solicite ingresar el nombre de su archivo, simplemente ingresa el nombre del archivo creado (incluyendo la extensión).
+### ¿Cómo puedo compartir mis archivos de idioma?
+Actualmente no puedes, pero puedes enviármelos a mis redes sociales (mis páginas de redes sociales están en [mi perfil](https://github.com/MasterJayanX)).
+
 ## Donaciones
 Acepto donaciones a través de Ko-fi:
-
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/D1D37FMC3)
