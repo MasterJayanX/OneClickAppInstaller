@@ -39,6 +39,18 @@ Suivez ces étapes pour utiliser OneClickAppInstaller :
 Pour compiler ce programme vous-même, vous devez télécharger les fichiers .cpp et .hpp et les enregistrer dans le même répertoire. Vous pouvez également télécharger les fichiers du référentiel à l'aide de la commande suivante sur une fenêtre de terminal : `git clone https://github.com/MasterJayanX/OneClickAppInstaller`.
 Ensuite, vous devez ouvrir une fenêtre de terminal et compiler le fichier .cpp avec la commande suivante : `g++ oneclickscripter.cpp -o output` (vous pouvez remplacer output par un nom de votre choix).
 
+## FAQ (Foire aux questions)
+### Quels systèmes opératifs sont pris en charge par ce logiciel ?
+Les systèmes opératifs officiellement pris en charge actuellement sont : Windows 10/11, macOS, Ubuntu, Debian, Arch Linux, Fedora et OpenSUSE. Le logiciel lui-même fonctionnera sur tout ce qui peut exécuter des fichiers .sh, mais il ne peut créer que des scripts pour les systèmes opératifs susmentionnés.
+### Y a-t-il des systèmes opératifs qui seront pris en charge à l'avenir ?
+Je prévois d'ajouter la compatibilité avec RHEL (Red Hat Enterprise Linux) dans la prochaine version.
+### J'ai trouvé un bug ou le logiciel ne fonctionne tout simplement pas bien. Où puis-je signaler ces problèmes ?
+Vous pouvez ouvrir un nouveau problème dans la section Problèmes et je m'en occuperai dès que possible.
+### Comment puis-je utiliser mes propres fichiers de langue?
+Après avoir créé votre fichier de langue basé sur le fichier modèle, il vous suffit de l'enregistrer dans le même dossier dans lequel se trouve l'exécutable OneClickAppInstaller. Ensuite, dans la section langue, choisissez « Autre / Autre » et lorsque vous êtes invité à saisir le nom de votre fichier, entrez simplement le nom du fichier que vous avez créé (y compris l’extension).
+### Comment puis-je partager mes fichiers de langue ?
+Actuellement, vous ne pouvez pas, mais vous pouvez me les envoyer sur mes réseaux sociaux (mes pages de réseaux sociaux se trouvent dans [mon profil](https://github.com/MasterJayanX)).
+
 ## Donations
 J'accepte des donations sur Ko-fi:
 
