@@ -15,13 +15,21 @@ using namespace std;
 bool install_winget = false;
 bool install_brew = false;
 string language;
-string version = "v1.1.2 (2023-12-21)";
+string version = "v1.2.0-pre.1 (2023-12-22)";
 int s;
 
 void programas(string os, ofstream& script, Translator translator){
     char option = 'y';
     bool first = true;
-    string pack, instruction;
+    char search;
+    char found = 'n';
+    string pack, instruction, searched_package;
+    cout << translator.translate("enablesearch") << endl;
+    cin >> search;
+    if(search != 'y' && search != 'Y' && search != 'n' && search != 'N'){
+        cout << translator.translate("invalid") << endl;
+        search = 'n';
+    }
     // Step 5: Choose the applications you want the script to install
     while(option == 'y' || option == 'Y'){
         if(first){
@@ -43,7 +51,42 @@ void programas(string os, ofstream& script, Translator translator){
         }
         cout << "" << endl;
         cout << translator.translate("addpackage") << endl;
-        if(first){
+        while(found == 'n' || found == 'N'){
+            if(search == 'y' || search == 'Y'){
+                cout << translator.translate("search") << endl;
+                cin >> searched_package;
+                if(os == "Windows"){
+                    system(("winget search " + searched_package).c_str());
+                }
+                else if(os == "macOS"){
+                    system(("brew search " + searched_package).c_str());
+                }
+                else if(os == "Ubuntu/Debian"){
+                    system(("apt search --names-only " + searched_package).c_str());
+                }
+                else if(os == "Arch"){
+                    system(("pacman -Ss " + searched_package).c_str());
+                }
+                else if(os == "Fedora"){
+                    system(("dnf search " + searched_package).c_str());
+                }
+                else if(os == "OpenSUSE"){
+                    system(("zypper search " + searched_package).c_str());
+                }
+                else if(os == "RHEL"){
+                    system(("yum search " + searched_package).c_str());
+                }
+                else if(os == "Flatpak"){
+                    system(("flatpak search " + searched_package).c_str());
+                }
+                cout << translator.translate("found") << endl;
+                cin >> found;
+            }
+            else{
+                break;
+            }
+        }
+        if(first && (search == 'n' || search == 'N')){
             if(os == "Windows"){
                 cout << translator.translate("forwindows") << endl;
             }
@@ -64,6 +107,9 @@ void programas(string os, ofstream& script, Translator translator){
             else if(os == "OpenSUSE"){
                 cout << translator.translate("foropensuse") << endl;
             }
+            else if(os == "RHEL"){
+                cout << translator.translate("forrhel") << endl;
+            }
             else if(os == "Flatpak"){
                 cout << translator.translate("forflatpak") << endl;
             }
@@ -71,6 +117,8 @@ void programas(string os, ofstream& script, Translator translator){
                 cout << translator.translate("invalid") << endl;
                 option = 1;
             }
+        }
+        if(first){
             first = false;
         }
         cout << translator.translate("packagename");
@@ -99,6 +147,10 @@ void programas(string os, ofstream& script, Translator translator){
             // This command installs your applications on SUSE Linux or OpenSUSE
             instruction = "sudo zypper install " + pack + " -y";
         }
+        else if(os == "RHEL"){
+            // This command installs your applications on Red Hat Enterprise Linux (RHEL)
+            instruction = "sudo yum install " + pack + " -y";
+        }
         else if(os == "Flatpak"){
             // This command installs your applications on any distro that supports Flatpak
             instruction = "flatpak install " + pack + " -y";
@@ -108,6 +160,8 @@ void programas(string os, ofstream& script, Translator translator){
             option = 1;
         }
         script << instruction << endl;
+        cout << translator.translate("added") << endl;
+        found = 'n';
     }
 }
 
@@ -223,6 +277,7 @@ int main(){
         language = "es";
     }
     else if(lang == 3){
+        // If you chose "Other", enter the name of your language file
         cout << "Enter the name of your your language file (example: fr.txt): ";
         cin >> language;
     }
@@ -295,7 +350,7 @@ int main(){
             // Linux
             int option2;
             // If you chose Linux, choose your distro
-            cout << translator.translate("distro") << endl << "1. Ubuntu/Debian" << endl << "2. Arch" << endl << "3. Fedora" << endl << "4. OpenSUSE" << endl << "5. " << translator.translate("flat") << endl << "6. " << translator.translate("distroback") << endl;
+            cout << translator.translate("distro") << endl << "1. Ubuntu/Debian" << endl << "2. Arch" << endl << "3. Fedora / Red Hat " << translator.translate("newer") << endl << "4. OpenSUSE" << endl << "5. Red Hat Enterprise Linux (RHEL) " << translator.translate("older") << endl << "6. " << translator.translate("flat") << endl << "7. " << translator.translate("distroback") << endl;
             cin >> option2;
             if(option2 == 1){
                 os = "Ubuntu/Debian";
@@ -314,10 +369,14 @@ int main(){
                 update = "sudo zypper update -y";
             }
             else if(option2 == 5){
+                os = "RHEL";
+                update = "sudo yum update -y";
+            }
+            else if(option2 == 6){
                 os = "Flatpak";
                 update = "flatpak update -y";
             }
-            else if(option2 == 6){
+            else if(option2 == 7){
                 option = START;
             }
             else{

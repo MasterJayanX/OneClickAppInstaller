@@ -44,6 +44,8 @@ private:
             translations["distro"] = "Select your Linux distribution:";
             translations["flat"] = "Flatpak (for other distributions)";
             translations["distroback"] = "Return to Main Menu";
+            translations["older"] = "(older versions)";
+            translations["newer"] = "(newer versions)";
             translations["qcustomname"] = "Do you want to give your script a custom name? [y/n]";
             translations["customname"] = "Enter a name for your file: ";
             translations["nocustomname"] = "Invalid option. A custom name will not be applied.";
@@ -64,6 +66,7 @@ private:
             translations["forarch"] = "For Arch (pacman) users, you can find valid package names here: https://archlinux.org/packages/ (you don't need to copy the part that says sudo pacman -S, just the package name).";
             translations["forfedora"] = "For Fedora (dnf) users, you can find valid package names here: https://apps.fedoraproject.org/packages/ (no need to copy the part that says sudo dnf install, just the package name) .";
             translations["foropensuse"] = "For OpenSUSE (zypper) users, you can find valid package names here: https://software.opensuse.org/ (you don't need to copy the part that says sudo zypper install, just the package name).";
+            translations["forrhel"] = "For Red Hat Enterprise Linux (yum) users, there is no official website to find valid package names, but you can find them here: https://rhel.pkgs.org.";
             translations["forflatpak"] = "For Flatpak users, you can find valid package names here: https://flathub.org/home (you don't need to copy the part that says flatpak install, just the package name).";
             translations["packagename"] = "Enter the package name here: ";
             translations["about1"] = "OneClickAppInstaller is a simple CLI tool that allows you to create a script to automatically install all of your apps on Windows, macOS or Linux with just one click.";
@@ -71,8 +74,13 @@ private:
             translations["about3"] = "Version: ";
             translations["about4"] = "Check out the full release history here: https://github.com/MasterJayanX/OneClickAppInstaller/releases";
             translations["nomoreapps"] = "No more applications will be added.";
+            translations["enablesearch"] = "Do you want to enable the search function?(y/n) This will allow you to search the package names from here. However, it will only work if you are on the same OS as the one you're creating the script for.";
+            translations["search"] = "Enter the name of the package you want to search for: ";
+            translations["found"] = "Did you find the application you were looking for?(y/n) If you didn't find it, type n to search again.";
+            translations["added"] = "Application added.";
             translations["pressenter"] = "Press Enter to exit...";
             translations["cringe"] = "Bruh, you're cringe.";
+            translations["how"] = "How did you get here?";
         } 
         else if (language == "es") {
             // Spanish
@@ -91,6 +99,8 @@ private:
             translations["distro"] = "Selecciona tu distribución Linux:";
             translations["flat"] = "Flatpak (para otras distribuciones)";
             translations["distroback"] = "Volver al inicio";
+            translations["older"] = "(versiones antiguas)";
+            translations["newer"] = "(versiones más recientes)";
             translations["qcustomname"] = "¿Deseas ponerle un nombre personalizado a tu script? [y/n]";
             translations["customname"] = "Escribe un nombre para tu archivo: ";
             translations["nocustomname"] = "Opción no válida. No se aplicará un nombre personalizado.";
@@ -111,6 +121,7 @@ private:
             translations["forarch"] = "Para usuarios de Arch (pacman), pueden encontrar los nombres de paquetes válidos aquí: https://archlinux.org/packages/ (no es necesario copiar la parte que dice sudo pacman -S, solo el nombre del paquete).";
             translations["forfedora"] = "Para usuarios de Fedora (dnf), pueden encontrar los nombres de paquetes válidos aquí: https://apps.fedoraproject.org/packages/ (no es necesario copiar la parte que dice sudo dnf install, solo el nombre del paquete).";
             translations["foropensuse"] = "Para usuarios de OpenSUSE (zypper), pueden encontrar los nombres de paquetes válidos aquí: https://software.opensuse.org/ (no es necesario copiar la parte que dice sudo zypper install, solo el nombre del paquete).";
+            translations["forrhel"] = "Para usuarios de Red Hat Enterprise Linux (yum), no hay un sitio web oficial para encontrar nombres de paquetes válidos, pero pueden encontrarlos aquí: https://rhel.pkgs.org.";
             translations["forflatpak"] = "Para usuarios de Flatpak, pueden encontrar los nombres de paquetes válidos aquí: https://flathub.org/home (no es necesario copiar la parte que dice flatpak install, solo el nombre del paquete).";
             translations["packagename"] = "Escribe el nombre del paquete aquí: ";
             translations["about1"] = "OneClickAppInstaller es una herramienta de línea de comandos sencilla que te permite crear un script para instalar todas tus aplicaciones en Windows, macOS o Linux automáticamente con solo un clic.";
@@ -118,8 +129,13 @@ private:
             translations["about3"] = "Versión:";
             translations["about4"] = "Revisa el historial de versiones completo aquí: https://github.com/MasterJayanX/OneClickAppInstaller/releases";
             translations["nomoreapps"] = "No se agregarán más aplicaciones.";
+            translations["enablesearch"] = "¿Deseas habilitar la función de búsqueda?(y/n) Esto te permitirá buscar los nombres de paquetes desde aquí. Sin embargo, solo funcionará si estás usando el mismo SO que el que elegiste para el script.";
+            translations["search"] = "Escribe el nombre del paquete que deseas buscar: ";
+            translations["found"] = "¿Encontraste la aplicación que buscabas?(y/n) Si no la encontraste, escribe n para buscar de nuevo.";
+            translations["added"] = "Aplicación agregada.";
             translations["pressenter"] = "Presiona Enter para salir...";
             translations["cringe"] = "Bruh, das cringe.";
+            translations["how"] = "¿Cómo llegaste aquí?";
         }
         else{
             // Open a language file
@@ -144,6 +160,9 @@ private:
 };
 void secrets(int s, Translator translator){
     // Secrets
+    if(s == 0){
+        cout << translator.translate("how") << endl;
+    }
     if(s == 1){
         // Shrek
         ofstream shrek("shrek.txt");
