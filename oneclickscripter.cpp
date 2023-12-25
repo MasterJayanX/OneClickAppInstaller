@@ -15,7 +15,7 @@ using namespace std;
 bool install_winget = false;
 bool install_brew = false;
 string language;
-string version = "v1.1.2 (2023-12-21)";
+string version = "v1.1.3 (2023-12-25)";
 int s;
 
 void programas(string os, ofstream& script, Translator translator){
@@ -37,7 +37,7 @@ void programas(string os, ofstream& script, Translator translator){
             cout << translator.translate("nomoreapps") << endl;
             if(os == "Ubuntu/Debian"){
                 // This command removes unnecessary packages on Ubuntu, Debian or Ubuntu/Debian-based distros
-                script << "sudo apt autoremove -y" << endl;
+                script << " && sudo apt autoremove -y";
             }
             break;
         }
@@ -81,33 +81,33 @@ void programas(string os, ofstream& script, Translator translator){
         }
         else if(os == "macOS"){
             // This command installs your applications on macOS
-            instruction = "brew install " + pack;
+            instruction = " && brew install " + pack;
         }
         else if(os == "Ubuntu/Debian"){
             // This command installs your applications on Ubuntu, Debian or Ubuntu/Debian-based distros
-            instruction = "sudo apt install " + pack + " -y";
+            instruction = " && sudo apt install " + pack + " -y";
         }
         else if(os == "Arch"){
             // This command installs your applications on Arch Linux or Arch-based distros
-            instruction = "sudo pacman -S " + pack + " --noconfirm";
+            instruction = " && sudo pacman -S " + pack + " --noconfirm";
         }
         else if(os == "Fedora"){
             // This command installs your applications on Fedora or Fedora-based distros
-            instruction = "sudo dnf install " + pack + " -y";
+            instruction = " && sudo dnf install " + pack + " -y";
         }
         else if(os == "OpenSUSE"){
             // This command installs your applications on SUSE Linux or OpenSUSE
-            instruction = "sudo zypper install " + pack + " -y";
+            instruction = " && sudo zypper install " + pack + " -y";
         }
         else if(os == "Flatpak"){
             // This command installs your applications on any distro that supports Flatpak
-            instruction = "flatpak install " + pack + " -y";
+            instruction = " && flatpak install " + pack + " -y";
         }
         else{
             cout << translator.translate("invalid") << endl;
             option = 1;
         }
-        script << instruction << endl;
+        script << instruction;
     }
 }
 
@@ -172,7 +172,6 @@ void script(string os, string update, Translator translator){
             script << "echo " << message << endl;
         }
         else{
-            script << "#!/bin/bash" << endl;
             script << "echo " << message << endl;
         }
     }
@@ -182,11 +181,8 @@ void script(string os, string update, Translator translator){
     else{
         cout << translator.translate("invalid") << endl;
     }
-    if(os == "Windows"){
+    if(os == "Windows" && (msj == 'n' || msj == 'N')){
         script << "@echo off" << endl;
-    }
-    else{
-        script << "#!/bin/bash" << endl;
     }
     if(os == "Windows"){
         if(install_winget){
@@ -203,7 +199,7 @@ void script(string os, string update, Translator translator){
         }
     }
     script << "echo " + translator.translate("updates") << endl;
-    script << update << endl;
+    script << update;
     programas(os, script, translator);
     script.close();
 }
