@@ -83,6 +83,7 @@ private:
             translations["how"] = "How did you get here?";
             translations["language"] = "Selected language: English";
             translations["autoapps"] = "Your applications will be added automatically. Number of applications to be added: ";
+            translations["useros"] = "User operating system: ";
         } 
         else if (language == "es") {
             // Spanish
@@ -140,6 +141,7 @@ private:
             translations["how"] = "¿Cómo llegaste aquí?";
             translations["language"] = "Idioma seleccionado: Español";
             translations["autoapps"] = "Tus aplicaciones se agregarán automáticamente. Número de aplicaciones que se agregarán: ";
+            translations["useros"] = "Sistema operativo del usuario: ";
         }
         else{
             // Open a language file

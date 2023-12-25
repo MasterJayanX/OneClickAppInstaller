@@ -10,10 +10,11 @@
 bool install_winget = false;
 bool install_brew = false;
 string language;
-string version = "v1.2.0-pre.2 (2023-12-25)";
+string version = "v1.2.0 (2023-12-25)";
 int s;
 ifstream config;
 bool configfile = false;
+string user_os, general_os;
 
 void programas(string os, ofstream& script, Translator translator){
     char option = 'y';
@@ -332,4 +333,51 @@ void script(string os, string update, Translator translator){
     script << update;
     programas(os, script, translator);
     script.close();
+}
+
+string checkUserOS(){
+    // This function checks the user's operating system
+    string os;
+    #ifdef _WIN32
+        general_os = "Windows";
+        #ifdef _WIN64
+            os = "Windows 64-bit";
+        #else
+            os = "Windows 32-bit";
+        #endif
+    #elif __APPLE__ || __MACH__
+        #include "TargetConditionals.h"
+        #if TARGET_OS_IPHONE && TARGET_IPHONE_SIMULATOR
+            os = "iPhone stimulator";
+        #elif TARGET_OS_IPHONE
+            os = "iOS";
+        #elif TARGET_OS_MAC
+            os = "macOS";
+        #else
+            os = "Other Apple OS";
+        #endif
+        general_os = "macOS";
+    #elif __linux__
+        os = "Linux";
+        general_os = os;
+    #elif __FreeBSD__
+        os = "FreeBSD";
+        general_os = os;
+    #elif __OpenBSD__
+        os = "OpenBSD";
+        general_os = os;
+    #elif __unix || __unix__
+        os = "Unix";
+        general_os = os;
+    #elif __ANDROID__
+        os = "Android";
+        general_os = os;
+    #elif _CYGWIN
+        os = "Cygwin (most likely Windows)";
+        general_os = "Windows";
+    #else
+        os = "Other OS";
+        general_os = os;
+    #endif
+    return os;
 }

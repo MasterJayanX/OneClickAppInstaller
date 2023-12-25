@@ -57,6 +57,7 @@ int main(){
     }
     cout << translator.translate("language") << endl;
     sleep(1);
+    user_os = checkUserOS();
     // Step 2: Choose an operating system
     cout << translator.translate("welcome") << endl;
     while(option == START){
@@ -175,6 +176,7 @@ int main(){
             cout << translator.translate("about2") << endl;
             cout << translator.translate("about3") << " " << version << endl;
             cout << translator.translate("about4") << endl;
+            cout << translator.translate("useros") << user_os << endl;
             sleep(0.8);
             cout << translator.translate("pressenter") << endl;
             cin.ignore();
