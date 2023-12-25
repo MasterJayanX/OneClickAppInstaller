@@ -1,0 +1,14 @@
+1
+1
+n
+y
+examplename
+y
+welcome
+n
+3
+Mozilla.Firefox
+Discord.Discord
+GitHub.GitHubDesktop
+
+// End of the file

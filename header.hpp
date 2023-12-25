@@ -81,6 +81,8 @@ private:
             translations["pressenter"] = "Press Enter to exit...";
             translations["cringe"] = "Bruh, you're cringe.";
             translations["how"] = "How did you get here?";
+            translations["language"] = "Selected language: English";
+            translations["autoapps"] = "Your applications will be added automatically. Number of applications to be added: ";
         } 
         else if (language == "es") {
             // Spanish
@@ -136,6 +138,8 @@ private:
             translations["pressenter"] = "Presiona Enter para salir...";
             translations["cringe"] = "Bruh, das cringe.";
             translations["how"] = "¿Cómo llegaste aquí?";
+            translations["language"] = "Idioma seleccionado: Español";
+            translations["autoapps"] = "Tus aplicaciones se agregarán automáticamente. Número de aplicaciones que se agregarán: ";
         }
         else{
             // Open a language file

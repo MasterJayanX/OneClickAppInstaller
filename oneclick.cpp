@@ -1,0 +1,335 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <cstdlib>
+#include <locale.h>
+#include <map>
+#include <unistd.h>
+#include "header.hpp"
+
+bool install_winget = false;
+bool install_brew = false;
+string language;
+string version = "v1.2.0-pre.2 (2023-12-25)";
+int s;
+ifstream config;
+bool configfile = false;
+
+void programas(string os, ofstream& script, Translator translator){
+    char option = 'y';
+    bool first = true;
+    char search;
+    char found = 'n';
+    string pack, instruction, searched_package;
+    // Step 5: Choose if you want to search for the packages you want to install
+    cout << translator.translate("enablesearch") << endl;
+    if(configfile){
+        config >> search;
+    }
+    else{
+        cin >> search;
+    }
+    if(search != 'y' && search != 'Y' && search != 'n' && search != 'N'){
+        cout << translator.translate("invalid") << endl;
+        search = 'n';
+    }
+    int i = 0;
+    // Step 6: Choose the applications you want the script to install
+    if(configfile){
+        config >> i;
+    }
+    if(i > 0 && configfile){
+        cout << translator.translate("autoapps") << i << endl;
+        for(int j = 1; j <= i; j++){
+            config >> pack;
+            if(os == "Windows"){
+                // This command installs your applications on Windows 10/11
+                instruction = "winget install " + pack + "\n";
+            }
+            else if(os == "macOS"){
+                // This command installs your applications on macOS
+                instruction = " && brew install " + pack;
+            }
+            else if(os == "Ubuntu/Debian"){
+                // This command installs your applications on Ubuntu, Debian or Ubuntu/Debian-based distros
+                instruction = " && sudo apt install " + pack + " -y";
+            }
+            else if(os == "Arch"){
+                // This command installs your applications on Arch Linux or Arch-based distros
+                instruction = " && sudo pacman -S " + pack + " --noconfirm";
+            }
+            else if(os == "Fedora"){
+                // This command installs your applications on Fedora or Fedora-based distros
+                instruction = " && sudo dnf install " + pack + " -y";
+            }
+            else if(os == "OpenSUSE"){
+                // This command installs your applications on SUSE Linux or OpenSUSE
+                instruction = " && sudo zypper --non-interactive install " + pack;
+            }
+            else if(os == "RHEL"){
+                // This command installs your applications on Red Hat Enterprise Linux (RHEL)
+                instruction = " && sudo yum install " + pack + " -y";
+            }
+            else if(os == "Flatpak"){
+                // This command installs your applications on any distro that supports Flatpak
+                instruction = " && flatpak install " + pack + " -y";
+            }
+            else{
+                cout << translator.translate("invalid") << endl;
+                option = 1;
+            }
+            script << instruction;
+            cout << translator.translate("added") << endl;
+        }
+        if(os == "Ubuntu/Debian"){
+            // This command removes unnecessary packages on Ubuntu, Debian or Ubuntu/Debian-based distros
+            script << " && sudo apt autoremove -y";
+        }
+    }
+    else{
+        while(option == 'y' || option == 'Y'){
+            if(first){
+                cout << translator.translate("addapps") << endl;
+                cin >> option;
+            }
+            else{
+                cout << translator.translate("addmoreapps") << endl;
+                cin >> option;
+            }
+            if(option != 'y' && option != 'Y'){
+                // No more applications to install
+                cout << translator.translate("nomoreapps") << endl;
+                if(os == "Ubuntu/Debian"){
+                    // This command removes unnecessary packages on Ubuntu, Debian or Ubuntu/Debian-based distros
+                    script << " && sudo apt autoremove -y";
+                }
+                break;
+            }
+            cout << "" << endl;
+            cout << translator.translate("addpackage") << endl;
+            while(found == 'n' || found == 'N'){
+                if(search == 'y' || search == 'Y'){
+                    cout << translator.translate("search") << endl;
+                    cin >> searched_package;
+                    if(os == "Windows"){
+                        system(("winget search " + searched_package).c_str());
+                    }
+                    else if(os == "macOS"){
+                        system(("brew search " + searched_package).c_str());
+                    }
+                    else if(os == "Ubuntu/Debian"){
+                        system(("apt search --names-only " + searched_package).c_str());
+                    }
+                    else if(os == "Arch"){
+                        system(("pacman -Ss " + searched_package).c_str());
+                    }
+                    else if(os == "Fedora"){
+                        system(("dnf search " + searched_package).c_str());
+                    }
+                    else if(os == "OpenSUSE"){
+                        system(("zypper search " + searched_package).c_str());
+                    }
+                    else if(os == "RHEL"){
+                        system(("yum search " + searched_package).c_str());
+                    }
+                    else if(os == "Flatpak"){
+                        system(("flatpak search " + searched_package).c_str());
+                    }
+                    cout << translator.translate("found") << endl;
+                    cin >> found;
+                }
+                else{
+                    break;
+                }
+            }
+            if(first && (search == 'n' || search == 'N')){
+                if(os == "Windows"){
+                    cout << translator.translate("forwindows") << endl;
+                }
+                else if(os == "macOS"){
+                    cout << translator.translate("formacos") << endl;
+                }
+                else if(os == "Ubuntu/Debian"){
+                    cout << translator.translate("forubuntu") << endl;
+                    cout << translator.translate("fordebian") << endl;
+                    cout << translator.translate("forotherapt") << endl;
+                }
+                else if(os == "Arch"){
+                    cout << translator.translate("forarch") << endl;
+                }
+                else if(os == "Fedora"){
+                    cout << translator.translate("forfedora") << endl;
+                }
+                else if(os == "OpenSUSE"){
+                    cout << translator.translate("foropensuse") << endl;
+                }
+                else if(os == "RHEL"){
+                    cout << translator.translate("forrhel") << endl;
+                }
+                else if(os == "Flatpak"){
+                    cout << translator.translate("forflatpak") << endl;
+                }
+                else{
+                    cout << translator.translate("invalid") << endl;
+                    option = 1;
+                }
+            }
+            if(first){
+                first = false;
+            }
+            cout << translator.translate("packagename");
+            cin >> pack;
+            if(os == "Windows"){
+                // This command installs your applications on Windows 10/11
+                instruction = "winget install " + pack + "\n";
+            }
+            else if(os == "macOS"){
+                // This command installs your applications on macOS
+                instruction = "brew install " + pack + "\n";
+            }
+            else if(os == "Ubuntu/Debian"){
+                // This command installs your applications on Ubuntu, Debian or Ubuntu/Debian-based distros
+                instruction = " && sudo apt install " + pack + " -y";
+            }
+            else if(os == "Arch"){
+                // This command installs your applications on Arch Linux or Arch-based distros
+                instruction = " && sudo pacman -S " + pack + " --noconfirm";
+            }
+            else if(os == "Fedora"){
+                // This command installs your applications on Fedora or Fedora-based distros
+                instruction = " && sudo dnf install " + pack + " -y";
+            }
+            else if(os == "OpenSUSE"){
+                // This command installs your applications on SUSE Linux or OpenSUSE
+                instruction = " && sudo zypper --non-interactive install " + pack;
+            }
+            else if(os == "RHEL"){
+                // This command installs your applications on Red Hat Enterprise Linux (RHEL)
+                instruction = " && sudo yum install " + pack + " -y";
+            }
+            else if(os == "Flatpak"){
+                // This command installs your applications on any distro that supports Flatpak
+                instruction = " && flatpak install " + pack + " -y";
+            }
+            else{
+                cout << translator.translate("invalid") << endl;
+                option = 1;
+            }
+            script << instruction;
+            cout << translator.translate("added") << endl;
+            found = 'n';
+        }
+    }
+}
+
+void script(string os, string update, Translator translator){
+    char customname;
+    string filename, ext;
+    if(os == "Windows"){
+        ext = ".bat";
+    }
+    else{
+        ext = ".sh";
+    }
+    // Step 3: Choose a name for your script (if you want a custom name)
+    cout << translator.translate("qcustomname") << endl;
+    if(configfile){
+        config >> customname;
+    }
+    else{
+        cin >> customname;
+    }
+    if(customname == 'y' || customname == 'Y'){
+        cout << translator.translate("customname") << endl;
+        if(configfile){
+            config >> filename;
+        }
+        else{
+            cin >> filename;
+        }
+        if(filename == "ascii_shrek"){
+            s = 1;
+            secrets(s, translator);
+        }
+        else if(filename == "among_us" || filename == "amongus"){
+            s = 3;
+            secrets(s, translator);
+        }
+        else if(filename == "chipichipichapachapa" || filename == "chipichapa"){
+            s = 4;
+            secrets(s, translator);
+        }
+        filename += ext;
+    }
+    else if(customname == 'n' || customname == 'N'){
+        if(os == "Ubuntu/Debian"){
+            filename = "ubuntu-debian" + ext;
+        }
+        else{
+            filename = os + ext;
+        }
+    }
+    else{
+        cout << translator.translate("nocustomname") << endl;
+        filename = os + ext;
+    }
+    ofstream script;
+    script.open(filename);
+    char msj;
+    // Step 4: Choose if you want to add a welcome message
+    cout << translator.translate("qwelcomemsg") << endl;
+    if(configfile){
+        config >> msj;
+    }
+    else{
+        cin >> msj;
+    }
+    if(msj == 'y' || msj == 'Y'){
+        string message;
+        cout << translator.translate("welcomemsg") << endl;
+        if(configfile){
+            config >> message;
+        }
+        else{
+            cin >> message;
+        }
+        if(message == "Skibidi Toilet"){
+            s = 2;
+            secrets(s, translator);
+        }
+        if(os == "Windows"){
+            script << "@echo off" << endl;
+            script << "echo " << message << endl;
+        }
+        else{
+            script << "echo " << message << endl;
+        }
+    }
+    else if(msj == 'n' || msj == 'N'){
+        cout << translator.translate("nowelcomemsg") << endl;
+    }
+    else{
+        cout << translator.translate("invalid") << endl;
+    }
+    if(os == "Windows"){
+        script << "@echo off" << endl;
+    }
+    if(os == "Windows"){
+        if(install_winget){
+            script << "echo " + translator.translate("instwinget") << endl;
+            // This command installs winget on Windows 10/11
+            script << "powershell -command \"Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\"" << endl;
+        }
+    }
+    if(os == "macOS"){
+        if(install_brew){
+            script << "echo " + translator.translate("instbrew") << endl;
+            // This command installs Homebrew on macOS
+            script << "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"" << endl;
+        }
+    }
+    script << "echo " + translator.translate("updates") << endl;
+    script << update;
+    programas(os, script, translator);
+    script.close();
+}
