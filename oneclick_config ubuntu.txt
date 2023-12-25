@@ -9,4 +9,4 @@ n // Choose whether you want to enable the search feature or not. This should be
 chromium-browser 
 vlc
 
-// End of the file (Note: Remember to rename this file to oneclick_config.txt to actually use it)
+// End of the file (Note: Remember to rename this file to oneclick_config.txt and remove the comments to actually use it)
