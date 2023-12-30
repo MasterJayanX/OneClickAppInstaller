@@ -1,0 +1,14 @@
+1 // Select your language (1 for English, 2 for Spanish or 3 to use another language)
+1 // Select the OS you want to make the script for (1 for Windows, 2 for macOS, 3 for Linux or 4 for another OS).
+n // Choose whether to install winget on Windows (or brew on macOS) or not. If you're doing a script for Linux, change this with a number from 1 to 6 to choose a distribution and if you choose another OS, change this with a number from 1 to 4.
+y // Choose whether you want to add a custom name or not.
+examplename // Enter your custom name (only if you entered y in the previous line. If you entered n, skip this part.)
+y // Choose whether you want to add a custom welcome message or not.
+welcome // Enter your welcome messaage (only if you entered y in the previous line. If you entered n, skip this part.)
+n // Choose whether you want to enable the search feature or not. This should be set as n if you want to add packages automatically in your script.
+3 // Choose the number of applications you want this config file to add automatically to your script. Set this to 0 if you want to add applications manually.
+Mozilla.Firefox
+Discord.Discord
+GitHub.GitHubDesktop
+
+// End of the file (Note: Remember to rename this file to oneclick_config.txt and remove the comments to actually use it)
