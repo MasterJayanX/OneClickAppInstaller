@@ -1,6 +1,6 @@
 1 // Select your language (1 for English, 2 for Spanish or 3 to use another language)
-3 // Select the OS you want to make the script for (1 for Windows, 2 for macOS or 3 for Linux).
-1 // Choose whether to install winget on Windows (or brew on macOS) or not. If you're doing a script for Linux, change this with a number from 1 to 6 to choose a distribution.
+3 // Select the OS you want to make the script for (1 for Windows, 2 for macOS, 3 for Linux or 4 for another OS).
+1 // Choose whether to install winget on Windows (or brew on macOS) or not. If you're doing a script for Linux, change this with a number from 1 to 6 to choose a distribution and if you choose another OS, change this with a number from 1 to 4.
 y // Choose whether you want to add a custom name or not.
 ubuntu // Enter your custom name (only if you entered y in the previous line. If you entered n, skip this part.)
 n // Choose whether you want to add a custom welcome message or not.

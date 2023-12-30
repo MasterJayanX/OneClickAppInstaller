@@ -1,3 +1,15 @@
+/**
+ * @file oneclick.cpp
+ * @brief This file contains the implementation of the "One-Click App Installer" program.
+ *
+ * The program allows users to generate a script that installs multiple applications on different operating systems.
+ * It supports Windows, macOS, Ubuntu/Debian, Arch Linux, Fedora, OpenSUSE, RHEL, and Flatpak.
+ * Users can customize the script by choosing the applications they want to install and providing a custom script name.
+ * The program also provides options to search for packages and displays available packages based on the selected operating system.
+ * The script generated can be executed to install the chosen applications.
+ *
+ * @author MasterJayanX
+ */
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -10,22 +22,22 @@
 bool install_winget = false;
 bool install_brew = false;
 string language;
-string version = "v1.2.0 (2023-12-25)";
+string version = "v1.2.0 (2023-12-30)";
 int s;
 ifstream config;
 bool configfile = false;
 string user_os, general_os;
 
-void programas(string os, ofstream& script, Translator translator){
+void programs(string os, ofstream& script, Translator translator){
     char option = 'y';
     bool first = true;
-    char search;
-    char found = 'n';
+    char search, found;
     string pack, instruction, searched_package;
     // Step 5: Choose if you want to search for the packages you want to install
     cout << translator.translate("enablesearch") << endl;
     if(configfile){
         config >> search;
+        cout << translator.translate("selected") << search << endl;
     }
     else{
         cin >> search;
@@ -41,6 +53,7 @@ void programas(string os, ofstream& script, Translator translator){
     }
     if(i > 0 && configfile){
         cout << translator.translate("autoapps") << i << endl;
+        sleep(1);
         for(int j = 1; j <= i; j++){
             config >> pack;
             if(os == "Windows"){
@@ -75,9 +88,25 @@ void programas(string os, ofstream& script, Translator translator){
                 // This command installs your applications on any distro that supports Flatpak
                 instruction = " && flatpak install " + pack + " -y";
             }
+            else if(os == "FreeBSD"){
+                // This command installs your applications on FreeBSD
+                instruction = " && sudo pkg install " + pack + " -y";
+            }
+            else if(os == "OpenBSD"){
+                // This command installs your applications on OpenBSD
+                instruction = " && sudo pkg_add " + pack;
+            }
+            else if(os == "NetBSD"){
+                // This command installs your applications on Android
+                instruction = " && sudo pkgin install " + pack;
+            }
+            else if(os == "Haiku"){
+                // This command installs your applications on Cygwin (most likely Windows)
+                instruction = " && pkgman install " + pack;
+            }
             else{
                 cout << translator.translate("invalid") << endl;
-                option = 1;
+                j = i + 1;
             }
             script << instruction;
             cout << translator.translate("added") << endl;
@@ -108,6 +137,7 @@ void programas(string os, ofstream& script, Translator translator){
             }
             cout << "" << endl;
             cout << translator.translate("addpackage") << endl;
+            found = 'n';
             while(found == 'n' || found == 'N'){
                 if(search == 'y' || search == 'Y'){
                     cout << translator.translate("search") << endl;
@@ -135,6 +165,21 @@ void programas(string os, ofstream& script, Translator translator){
                     }
                     else if(os == "Flatpak"){
                         system(("flatpak search " + searched_package).c_str());
+                    }
+                    else if(os == "FreeBSD"){
+                        system(("pkg search " + searched_package).c_str());
+                    }
+                    else if(os == "OpenBSD"){
+                        system(("pkg_info " + searched_package).c_str());
+                    }
+                    else if(os == "NetBSD"){
+                        system(("pkgin search " + searched_package).c_str());
+                    }
+                    else if(os == "Haiku"){
+                        system(("pkgman search " + searched_package).c_str());
+                    }
+                    else{
+                        cout << translator.translate("invalid") << endl;
                     }
                     cout << translator.translate("found") << endl;
                     cin >> found;
@@ -170,9 +215,21 @@ void programas(string os, ofstream& script, Translator translator){
                 else if(os == "Flatpak"){
                     cout << translator.translate("forflatpak") << endl;
                 }
+                else if(os == "FreeBSD"){
+                    cout << translator.translate("forfreebsd") << endl;
+                }
+                else if(os == "OpenBSD"){
+                    cout << translator.translate("foropenbsd") << endl;
+                }
+                else if(os == "NetBSD"){
+                    cout << translator.translate("fornetbsd") << endl;
+                }
+                else if(os == "Haiku"){
+                    cout << translator.translate("forhaiku") << endl;
+                }
                 else{
                     cout << translator.translate("invalid") << endl;
-                    option = 1;
+                    return;
                 }
             }
             if(first){
@@ -212,6 +269,22 @@ void programas(string os, ofstream& script, Translator translator){
                 // This command installs your applications on any distro that supports Flatpak
                 instruction = " && flatpak install " + pack + " -y";
             }
+            else if(os == "FreeBSD"){
+                // This command installs your applications on FreeBSD
+                instruction = " && sudo pkg install " + pack + " -y";
+            }
+            else if(os == "OpenBSD"){
+                // This command installs your applications on OpenBSD
+                instruction = " && sudo pkg_add " + pack;
+            }
+            else if(os == "NetBSD"){
+                // This command installs your applications on Android
+                instruction = " && sudo pkgin install " + pack;
+            }
+            else if(os == "Haiku"){
+                // This command installs your applications on Cygwin (most likely Windows)
+                instruction = " && pkgman install " + pack;
+            }
             else{
                 cout << translator.translate("invalid") << endl;
                 option = 1;
@@ -236,6 +309,7 @@ void script(string os, string update, Translator translator){
     cout << translator.translate("qcustomname") << endl;
     if(configfile){
         config >> customname;
+        cout << translator.translate("selected") << customname << endl;
     }
     else{
         cin >> customname;
@@ -244,6 +318,7 @@ void script(string os, string update, Translator translator){
         cout << translator.translate("customname") << endl;
         if(configfile){
             config >> filename;
+            cout << filename << endl;
         }
         else{
             cin >> filename;
@@ -281,6 +356,7 @@ void script(string os, string update, Translator translator){
     cout << translator.translate("qwelcomemsg") << endl;
     if(configfile){
         config >> msj;
+        cout << translator.translate("selected") << msj << endl;
     }
     else{
         cin >> msj;
@@ -290,6 +366,7 @@ void script(string os, string update, Translator translator){
         cout << translator.translate("welcomemsg") << endl;
         if(configfile){
             config >> message;
+            cout << message << endl;
         }
         else{
             cin >> message;
@@ -331,7 +408,7 @@ void script(string os, string update, Translator translator){
     }
     script << "echo " + translator.translate("updates") << endl;
     script << update;
-    programas(os, script, translator);
+    programs(os, script, translator);
     script.close();
 }
 
@@ -357,6 +434,9 @@ string checkUserOS(){
             os = "Other Apple OS";
         #endif
         general_os = "macOS";
+    #elif __ANDROID__
+        os = "Android";
+        general_os = os;
     #elif __linux__
         os = "Linux";
         general_os = os;
@@ -366,11 +446,11 @@ string checkUserOS(){
     #elif __OpenBSD__
         os = "OpenBSD";
         general_os = os;
+    #elif __NetBSD__
+        os = "NetBSD";
+        general_os = os;
     #elif __unix || __unix__
         os = "Unix";
-        general_os = os;
-    #elif __ANDROID__
-        os = "Android";
         general_os = os;
     #elif _CYGWIN
         os = "Cygwin (most likely Windows)";
@@ -380,4 +460,11 @@ string checkUserOS(){
         general_os = os;
     #endif
     return os;
+}
+
+void clearTerminal(){
+    // This function clears the terminal window
+    if(user_os == "Linux" || user_os == "macOS" || user_os == "Unix"){
+        system("clear");
+    }
 }

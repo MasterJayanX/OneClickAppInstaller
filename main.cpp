@@ -1,3 +1,17 @@
+/**
+ * @file main.cpp
+ * @brief OneClickAppInstaller main program file.
+ * 
+ * This file contains the main function of the OneClickAppInstaller program.
+ * The program allows users to select their language, choose an operating system,
+ * and perform updates based on their selection.
+ * 
+ * The program reads a configuration file if available, otherwise it prompts the user for input.
+ * It uses a Translator object to translate messages based on the selected language.
+ * The program also includes a script function to execute the update commands based on the selected operating system.
+ * 
+ * @author MasterJayanX
+ */
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -7,7 +21,6 @@
 #include <unistd.h>
 #include "oneclick.cpp"
 
-// Programa hecho por MasterJayanX
 #define START 1000
 
 using namespace std;
@@ -22,10 +35,13 @@ int main(){
     if(config.is_open()){
         configfile = true;
     }
+    user_os = checkUserOS();
+    clearTerminal();
     // Step 1: Choose your language
     cout << "Select your language / Selecciona tu idioma: " << endl << "1. English" << endl << "2. Español" << endl << "3. Other / Otro" << endl;
     if(configfile){
         config >> lang;
+        cout << "Selected / Seleccionado: " << lang << endl;
     }
     else{
         cin >> lang;
@@ -53,17 +69,18 @@ int main(){
         cout << "Press Enter to exit. / Presiona Enter para salir." << endl;
         cin.ignore();
         cin.get();
+        clearTerminal();
         return 0;
     }
     cout << translator.translate("language") << endl;
     sleep(1);
-    user_os = checkUserOS();
     // Step 2: Choose an operating system
     cout << translator.translate("welcome") << endl;
     while(option == START){
-        cout << translator.translate("option") << endl << translator.translate("opt1") << endl << translator.translate("opt2") << endl << translator.translate("opt3") << endl << translator.translate("opt4") << endl << translator.translate("opt5") << endl;
+        cout << translator.translate("option") << endl << translator.translate("opt1") << endl << translator.translate("opt2") << endl << translator.translate("opt3") << endl << translator.translate("opt4") << endl << translator.translate("opt5") << endl << translator.translate("opt6") << endl;
         if(configfile){
             config >> option;
+            cout << translator.translate("selected") << option << endl;
         }
         else{
             cin >> option;
@@ -78,6 +95,7 @@ int main(){
                 cout << translator.translate("winget") << endl;
                 if(configfile){
                     config >> winget;
+                    cout << translator.translate("selected") << winget << endl;
                 }
                 else{
                     cin >> winget;
@@ -106,6 +124,7 @@ int main(){
                 cout << translator.translate("homebrew") << endl;
                 if(configfile){
                     config >> brew;
+                    cout << translator.translate("selected") << brew << endl;
                 }
                 else{
                     cin >> brew;
@@ -128,9 +147,10 @@ int main(){
             // Linux
             int option2;
             // If you chose Linux, choose your distro
-            cout << translator.translate("distro") << endl << "1. Ubuntu/Debian" << endl << "2. Arch" << endl << "3. Fedora / Red Hat " << translator.translate("newer") << endl << "4. OpenSUSE" << endl << "5. Red Hat Enterprise Linux (RHEL) " << translator.translate("older") << endl << "6. " << translator.translate("flat") << endl << "7. " << translator.translate("distroback") << endl;
+            cout << translator.translate("distro") << endl << "1. Ubuntu/Debian" << endl << "2. Arch" << endl << "3. Fedora / Red Hat " << translator.translate("newer") << endl << "4. OpenSUSE" << endl << "5. Red Hat Enterprise Linux (RHEL) " << translator.translate("older") << endl << "6. " << translator.translate("flat") << endl << "7. " << translator.translate("back") << endl;
             if(configfile){
                 config >> option2;
+                cout << translator.translate("selected") << option2 << endl;
             }
             else{
                 cin >> option2;
@@ -166,24 +186,62 @@ int main(){
                 cout << translator.translate("invalid") << endl;
                 option = START;
             }
-            if(option2 != 6 && option != START){
+            if(option2 != 7 && option != START){
                 script(os, update, translator);
             }
         }
         else if(option == 4){
+            // Other OS
+            int option3;
+            cout << translator.translate("otheros") << endl << "1. FreeBSD" << endl << "2. OpenBSD" << endl << "3. NetBSD" << endl << "4. Haiku" << endl << "5. " << translator.translate("back") << endl;
+            if(configfile){
+                config >> option3;
+                cout << translator.translate("selected") << option3 << endl;
+            }
+            else{
+                cin >> option3;
+            }
+            if(option3 == 1){
+                os = "FreeBSD";
+                update = "pkg update && pkg upgrade -y";
+            }
+            else if(option3 == 2){
+                os = "OpenBSD";
+                update = "pkg_add -u";
+            }
+            else if(option3 == 3){
+                os = "NetBSD";
+                update = "pkgin update && pkgin full-upgrade -y";
+            }
+            else if(option3 == 4){
+                os = "Haiku";
+                update = "pkgman update && pkgman full-upgrade -y";
+            }
+            else if(option3 == 5){
+                option = START;
+            }
+            else{
+                cout << translator.translate("invalid") << endl;
+                option = START;
+            }
+            if(option3 != 5 && option != START){
+                script(os, update, translator);
+            }
+        }
+        else if(option == 5){
             // About
             cout << translator.translate("about1") << endl;
             cout << translator.translate("about2") << endl;
             cout << translator.translate("about3") << " " << version << endl;
             cout << translator.translate("about4") << endl;
             cout << translator.translate("useros") << user_os << endl;
-            sleep(0.8);
-            cout << translator.translate("pressenter") << endl;
+            sleep(1);
+            cout << translator.translate("pressenter2") << endl;
             cin.ignore();
             cin.get();
             option = START;
         }
-        else if(option == 5){
+        else if(option == 6){
             // Exit
             return 0;
         }
@@ -192,8 +250,9 @@ int main(){
             option = START;
         }
     }
-    cout << translator.translate("pressenter") << endl;
     cin.ignore();
+    cout << translator.translate("pressenter") << endl;
     cin.get();
+    clearTerminal();
     return 0;
 }

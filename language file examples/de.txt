@@ -1,0 +1,63 @@
+welcome=Willkommen bei OneClickAppInstaller, einer Software, mit der Sie mit nur einem Klick Skripte erstellen können, um Windows-, macOS- oder Linux-Anwendungen zu installieren. Diese Software wurde von MasterJayanX erstellt.
+option=Wählen Sie eine Option:
+opt1=1. Skript für Windows erstellen
+opt2=2. Skript für macOS erstellen
+opt3=3. Skript für Linux erstellen
+opt4=4. Skript für ein anderes Betriebssystem erstellen
+opt5=5. Über
+opt6=6. Beenden
+invalid=Ungültige Option.
+winget=Dieses Skript verwendet den Paketmanager "winget" zur Installation von Anwendungen. Möchten Sie, dass das Skript "winget" installiert? [j/n]
+nowinget="Winget" wird nicht installiert.
+homebrew=Dieses Skript verwendet den Paketmanager "Homebrew" zur Installation von Anwendungen. Möchten Sie, dass das Skript "Homebrew" (brew) installiert? [j/n]
+nohomebrew="Homebrew" wird nicht installiert.
+distro=Wählen Sie Ihre Linux-Distribution:
+flat=Flatpak (für andere Distributionen)
+back>Zurück zum Hauptmenü
+older=(ältere Versionen)
+newer=(neuere Versionen)
+otheros=Wählen Sie Ihr Betriebssystem:
+qcustomname>Möchten Sie Ihrem Skript einen benutzerdefinierten Namen geben? [j/n]
+customname>Geben Sie einen Namen für Ihre Datei ein:
+nocustomname>Ungültige Option. Es wird kein benutzerdefinierter Name angewendet.
+qwelcomemsg>Möchten Sie Ihrem Skript eine benutzerdefinierte Begrüßungsnachricht hinzufügen? [j/n]
+welcomemsg>Geben Sie Ihre Nachricht ein:
+nowelcomemsg>Es wird keine Begrüßungsnachricht hinzugefügt.
+instwinget>Installiere "winget"...
+instbrew>Installiere "brew"...
+updates>Installiere Updates...
+addapps>Möchten Sie Anwendungen zum Skript hinzufügen? [j/n]
+addmoreapps>Möchten Sie weitere Anwendungen zum Skript hinzufügen? [j/n]
+addpackage>Geben Sie den Paketnamen der Anwendung ein, die Sie installieren möchten. Beachten Sie, dass der Paketname ein gültiger Paketname sein muss, damit das Skript korrekt funktioniert.
+forwindows>Für Windows (winget) Benutzer finden Sie gültige Paketnamen hier: https://winget.run (Sie müssen den Teil, der "winget install" sagt, nicht kopieren, nur die Paket-ID).
+formacos>Für macOS (brew) Benutzer finden Sie gültige Paketnamen hier: https://formulae.brew.sh (Sie müssen den Teil, der "brew install" sagt, nicht kopieren, nur den Paketnamen).
+forubuntu>Für Ubuntu (apt) Benutzer finden Sie gültige Paketnamen hier: https://packages.ubuntu.com/ (Sie müssen den Teil, der "sudo apt install" sagt, nicht kopieren, nur den Paketnamen).
+fordebian>Für Debian (apt) Benutzer finden Sie gültige Paketnamen hier: https://packages.debian.org/en/ (Sie müssen den Teil, der "sudo apt install" sagt, nicht kopieren, nur den Paketnamen).
+forotherapt>Für andere auf Ubuntu oder Debian basierende Distributionen finden Sie gültige Paketnamen auf ihren jeweiligen Websites.
+forarch>Für Arch (pacman) Benutzer finden Sie gültige Paketnamen hier: https://archlinux.org/packages/ (Sie müssen den Teil, der "sudo pacman -S" sagt, nicht kopieren, nur den Paketnamen).
+forfedora>Für Fedora (dnf) Benutzer finden Sie gültige Paketnamen hier: https://apps.fedoraproject.org/packages/ (Sie müssen den Teil, der "sudo dnf install" sagt, nicht kopieren, nur den Paketnamen).
+foropensuse>Für OpenSUSE (zypper) Benutzer finden Sie gültige Paketnamen hier: https://software.opensuse.org/ (Sie müssen den Teil, der "sudo zypper install" sagt, nicht kopieren, nur den Paketnamen).
+forrhel>Für Red Hat Enterprise Linux (yum) Benutzer gibt es keine offizielle Website, um gültige Paketnamen zu finden, aber Sie können sie hier finden: https://rhel.pkgs.org.
+forflatpak>Für Flatpak Benutzer finden Sie gültige Paketnamen hier: https://flathub.org/home (Sie müssen den Teil, der "flatpak install" sagt, nicht kopieren, nur den Paketnamen).
+forfreebsd>Für FreeBSD Benutzer finden Sie gültige Paketnamen hier: https://freebsd.pkgs.org.
+foropenbsd>Für OpenBSD Benutzer finden Sie gültige Paketnamen hier: https://openbsd.app.
+fornetbsd>Für NetBSD Benutzer finden Sie gültige Paketnamen hier: https://netbsd.pkgs.org.
+forhaiku>Für Haiku Benutzer finden Sie gültige Paketnamen hier: https://depot.haiku-os.org/.
+packagename>Geben Sie den Paketnamen hier ein:
+about1>OneClickAppInstaller ist ein einfaches CLI-Tool, mit dem Sie ein Skript erstellen können, um alle Ihre Apps unter Windows, macOS oder Linux automatisch zu installieren.
+about2>Dieses Tool wurde von MasterJayanX erstellt.
+about3>Version:
+about4>Schauen Sie sich die vollständige Versionshistorie hier an: https://github.com/MasterJayanX/OneClickAppInstaller/releases
+nomoreapps>Es werden keine weiteren Anwendungen hinzugefügt.
+enablesearch>Möchten Sie die Suchfunktion aktivieren? [j/n] Dadurch können Sie die Paketnamen von hier aus suchen. Es funktioniert jedoch nur, wenn Sie dasselbe Betriebssystem wie das erstellte Skript verwenden.
+search>Geben Sie den Namen des Pakets ein, das Sie suchen möchten:
+found>Haben Sie die gesuchte Anwendung gefunden? [j/n] Wenn nicht, geben Sie "n" ein, um erneut zu suchen.
+added>Anwendung hinzugefügt.
+pressenter>Drücken Sie die Eingabetaste, um zu beenden...
+pressenter2>Drücken Sie die Eingabetaste, um zum Hauptmenü zurückzukehren...
+cringe>Bruder, du bist cringe.
+how>Wie bist du hierher gekommen?
+language>Ausgewählte Sprache: Deutsch
+autoapps>Ihre Anwendungen werden automatisch hinzugefügt. Anzahl der hinzuzufügenden Anwendungen:
+useros>Benutzerbetriebssystem:
+selected>Ausgewählte Option:
