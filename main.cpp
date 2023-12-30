@@ -35,6 +35,15 @@ int main(){
     if(config.is_open()){
         configfile = true;
     }
+    else{
+        config.open("oneclickconfig.txt");
+        if(config.is_open()){
+            configfile = true;
+        }
+        else{
+            configfile = false;
+        }
+    }
     user_os = checkUserOS();
     clearTerminal();
     // Step 1: Choose your language
