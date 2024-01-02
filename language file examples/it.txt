@@ -61,3 +61,4 @@ language=Lingua selezionata: Italiano
 autoapps=Le tue applicazioni verranno aggiunte automaticamente. Numero di applicazioni da aggiungere:
 useros=Sistema operativo dell'utente:
 selected=Opzione selezionata:
+done=Fatto! Tutte le tue applicazioni sono state installate.

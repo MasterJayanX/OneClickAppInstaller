@@ -22,11 +22,27 @@
 bool install_winget = false;
 bool install_brew = false;
 string language;
-string version = "v1.2.0 (2023-12-30)";
+string version = "v1.2.0 (2024-01-02)";
 int s;
 ifstream config;
 bool configfile = false;
 string user_os, general_os;
+
+void openConfig(){
+    config.open("oneclick_config.txt");
+    if(config.is_open()){
+        configfile = true;
+    }
+    else{
+        config.open("oneclickconfig.txt");
+        if(config.is_open()){
+            configfile = true;
+        }
+        else{
+            configfile = false;
+        }
+    }
+}
 
 void programs(string os, ofstream& script, Translator translator){
     char option = 'y';
@@ -115,6 +131,12 @@ void programs(string os, ofstream& script, Translator translator){
             // This command removes unnecessary packages on Ubuntu, Debian or Ubuntu/Debian-based distros
             script << " && sudo apt autoremove -y";
         }
+        if(os != "Windows"){
+            script << " && echo " + translator.translate("done") << endl;
+        }
+        else{
+            script << "echo " + translator.translate("done") << endl;
+        }
     }
     else{
         while(option == 'y' || option == 'Y'){
@@ -132,6 +154,12 @@ void programs(string os, ofstream& script, Translator translator){
                 if(os == "Ubuntu/Debian"){
                     // This command removes unnecessary packages on Ubuntu, Debian or Ubuntu/Debian-based distros
                     script << " && sudo apt autoremove -y";
+                }
+                if(os != "Windows"){
+                    script << " && echo " + translator.translate("done") << endl;
+                }
+                else{
+                    script << "echo " + translator.translate("done") << endl;
                 }
                 break;
             }
@@ -396,7 +424,7 @@ void script(string os, string update, Translator translator){
         if(install_winget){
             script << "echo " + translator.translate("instwinget") << endl;
             // This command installs winget on Windows 10/11
-            script << "powershell -command \"Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\"" << endl;
+            script << "powershell -command Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" << endl;
         }
     }
     if(os == "macOS"){
@@ -425,7 +453,7 @@ string checkUserOS(){
     #elif __APPLE__ || __MACH__
         #include "TargetConditionals.h"
         #if TARGET_OS_IPHONE && TARGET_IPHONE_SIMULATOR
-            os = "iPhone stimulator";
+            os = "iPhone simulator";
         #elif TARGET_OS_IPHONE
             os = "iOS";
         #elif TARGET_OS_MAC

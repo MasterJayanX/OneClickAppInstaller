@@ -31,19 +31,7 @@ int main(){
     string os;
     string update;
     int lang;
-    config.open("oneclick_config.txt");
-    if(config.is_open()){
-        configfile = true;
-    }
-    else{
-        config.open("oneclickconfig.txt");
-        if(config.is_open()){
-            configfile = true;
-        }
-        else{
-            configfile = false;
-        }
-    }
+    openConfig();
     user_os = checkUserOS();
     clearTerminal();
     // Step 1: Choose your language

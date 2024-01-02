@@ -99,6 +99,7 @@ private:
             translations["autoapps"] = "Your applications will be added automatically. Number of applications to be added: ";
             translations["useros"] = "User operating system: ";
             translations["selected"] = "Selected option: ";
+            translations["done"] = "Done! All of your applications have been installed.";
         } 
         else if (language == "es") {
             // Spanish
@@ -165,6 +166,7 @@ private:
             translations["autoapps"] = "Tus aplicaciones se agregarán automáticamente. Número de aplicaciones que se agregarán: ";
             translations["useros"] = "Sistema operativo del usuario: ";
             translations["selected"] = "Opción seleccionada: ";
+            translations["done"] = "¡Listo! Todas tus aplicaciones han sido instaladas.";
         }
         else{
             // Open a language file

@@ -61,3 +61,4 @@ language=Selected language: English
 autoapps=Your applications will be added automatically. Number of applications to be added:
 useros=User operating system:
 selected=Selected option:
+done=Done! All of your applications have been installed.
