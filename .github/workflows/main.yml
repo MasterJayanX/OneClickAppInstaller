@@ -12,13 +12,21 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Set up WSL
-      uses: crazy-max/ghaction-wsl@v2
+    - name: Setup C/C++ Compiler
+      uses: rlalik/setup-cpp-compiler@v1.2
       with:
-        dist: '22.04'
+    # Compiler to install
+        compiler: g++-11
 
     - name: Compile
       run: |
-        wsl g++ main.cpp -o oneclickappinstaller_nightly.sh -Wall
-        g++ main.cpp -o oneclickappinstaller_nightly.exe -Wall
-        
+        g++ main.cpp -o oneclickappinstaller_nightly.sh -Wall
+        mv oneclickappinstaller_nightly.sh .github/compiled/oneclickappinstaller_nightly.sh
+
+    - name: Update nightly release
+      uses: eine/tip@master
+      with:
+        tag: nightly
+        rm: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: .github/compiled/*.*
