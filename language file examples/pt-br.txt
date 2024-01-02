@@ -61,3 +61,4 @@ language=Idioma selecionado: Português (Brasil)
 autoapps=Seus aplicativos serão adicionados automaticamente. Número de aplicativos a serem adicionados:
 useros=Sistema operacional do usuário:
 selected=Opção selecionada:
+done=Concluído! Todos os seus aplicativos foram instalados.
