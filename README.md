@@ -12,17 +12,18 @@ OneClickAppInstaller is a simple CLI tool that allows you to create a script to 
 
 ### macOS:
 
-- macOS 12 (Monterey) or above with [Homebrew](https://github.com/Homebrew/brew) installed.
+- macOS 12 (Monterey) or above with [Homebrew](https://github.com/Homebrew/brew) installed. Older versions could work, but they aren't officially supported by Homebrew.
 
 ### Linux:
 Here's a list of compatible Linux distributions for each option in the menu:
 
-- `Ubuntu/Debian`: Ubuntu, Debian, Linux Mint, PopOS!, any Ubuntu flavors like Kubuntu, MX Linux, antiX, PeppermintOS, Deepin, elementaryOS and ChromeOS with Linux mode installed. **Note**: KDE Neon might work, but it might have issues because the script makes use of the `sudo apt upgrade` command to update packages.
+- `Ubuntu/Debian`: Ubuntu, Debian, Linux Mint, PopOS!, any Ubuntu flavors like Kubuntu, Linux Lite, MX Linux, antiX, PeppermintOS, Deepin, elementaryOS and ChromeOS with Linux mode installed. Ubuntu 16.04 or Debian 8 or above is required because this script uses apt instead of apt-get. **Note**: KDE Neon might work, but it might have issues because the script makes use of the `sudo apt upgrade` command to update packages.
 - `Arch`: Arch Linux, Manjaro, EndeavourOS, Garuda, SteamOS, Crystal Linux and ChimeraOS.
-- `Fedora / Red Hat`: Fedora, Fedora Spins, Red Hat Enterprise Linux (RHEL) 8 or above, AlmaLinux and Rocky Linux.
+- `Fedora / Red Hat`: Fedora, Fedora Spins, Red Hat Enterprise Linux (RHEL) 8 or above, AlmaLinux and Rocky Linux. Fedora 22 or RHEL 8 or above is required for this option.
 - `openSUSE`: SUSE, openSUSE Leap and openSUSE Tumbleweed.
 - `Red Hat Enterprise Linux (RHEL)`: Red Hat Enterprise Linux (RHEL) 7 or below.
-- `Flatpak`: Any Linux distribution that can run [Flatpak](https://flatpak.org)
+- `Flatpak`: Any Linux distribution that can run [Flatpak](https://flatpak.org).
+- `Snap`: Any Linux distribution that can run [Snap](https://snapcraft.io).
 
 ### Other operating systems:
 

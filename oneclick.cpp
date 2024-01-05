@@ -22,7 +22,7 @@
 bool install_winget = false;
 bool install_brew = false;
 string language;
-string version = "v1.2.0 (2024-01-02)";
+string version = "v1.2.1 (2024-01-05)";
 int s;
 ifstream config;
 bool configfile = false;
@@ -103,6 +103,10 @@ void programs(string os, ofstream& script, Translator translator){
             else if(os == "Flatpak"){
                 // This command installs your applications on any distro that supports Flatpak
                 instruction = " && flatpak install " + pack + " -y";
+            }
+            else if(os == "Snap"){
+                // This command installs your applications on any distro that supports Snap
+                instruction = " && sudo snap install " + pack;
             }
             else if(os == "FreeBSD"){
                 // This command installs your applications on FreeBSD
@@ -206,6 +210,9 @@ void programs(string os, ofstream& script, Translator translator){
                     else if(os == "Haiku"){
                         system(("pkgman search " + searched_package).c_str());
                     }
+                    else if(os == "Snap"){
+                        system(("snap search " + searched_package).c_str());
+                    }
                     else{
                         cout << translator.translate("invalid") << endl;
                     }
@@ -254,6 +261,9 @@ void programs(string os, ofstream& script, Translator translator){
                 }
                 else if(os == "Haiku"){
                     cout << translator.translate("forhaiku") << endl;
+                }
+                else if(os == "Snap"){
+                    cout << translator.translate("forsnap") << endl;
                 }
                 else{
                     cout << translator.translate("invalid") << endl;
@@ -374,8 +384,14 @@ void script(string os, string update, Translator translator){
         }
     }
     else{
+        cout << translator.translate("invalid") << endl;
         cout << translator.translate("nocustomname") << endl;
-        filename = os + ext;
+        if(os == "Ubuntu/Debian"){
+            filename = "ubuntu-debian" + ext;
+        }
+        else{
+            filename = os + ext;
+        }
     }
     ofstream script;
     script.open(filename);

@@ -39,6 +39,7 @@ forfedora=Per gli utenti di Fedora (dnf), puoi trovare nomi di pacchetti validi 
 foropensuse=Per gli utenti di OpenSUSE (zypper), puoi trovare nomi di pacchetti validi qui: https://software.opensuse.org/ (non è necessario copiare la parte che dice sudo zypper install, solo il nome del pacchetto).
 forrhel=Per gli utenti di Red Hat Enterprise Linux (yum), non esiste un sito web ufficiale per trovare nomi di pacchetti validi, ma puoi trovarli qui: https://rhel.pkgs.org.
 forflatpak=Per gli utenti di Flatpak, puoi trovare nomi di pacchetti validi qui: https://flathub.org/home (non è necessario copiare la parte che dice flatpak install, solo il nome del pacchetto).
+forsnap=Per gli utenti di Snap, puoi trovare nomi di pacchetti validi qui: https://snapcraft.io/store.
 forfreebsd=Per gli utenti di FreeBSD, puoi trovare nomi di pacchetti validi qui: https://freebsd.pkgs.org.
 foropenbsd=Per gli utenti di OpenBSD, puoi trovare nomi di pacchetti validi qui: https://openbsd.app.
 fornetbsd=Per gli utenti di NetBSD, puoi trovare nomi di pacchetti validi qui: https://netbsd.pkgs.org.

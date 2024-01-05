@@ -11,17 +11,18 @@ OneClickAppInstaller est un simple outil de ligne de commandes qui vous permet d
 
 ### macOS :
 
-- macOS 12 (Monterey) ou supérieur avec [Homebrew](https://github.com/Homebrew/brew) installé.
+- macOS 12 (Monterey) ou supérieur avec [Homebrew](https://github.com/Homebrew/brew) installé. Les versions plus anciennes pourraient fonctionner, mais elles ne sont pas officiellement prises en charge par Homebrew.
 
 ### Linux :
 Voici une liste de distributions Linux compatibles pour chaque option du menu :
 
-- `Ubuntu/Debian` : Ubuntu, Debian, Linux Mint, PopOS!, toutes les saveurs d'Ubuntu comme Kubuntu, MX Linux, antiX, PeppermintOS, Deepin, elementaryOS et ChromeOS avec le mode Linux installé. **Note** : KDE Neon pourrait fonctionner, mais il pourrait y avoir des problèmes car le script utilise la commande `sudo apt upgrade` pour mettre à jour les applications.
+- `Ubuntu/Debian` : Ubuntu, Debian, Linux Mint, PopOS!, toutes les saveurs d'Ubuntu comme Kubuntu, Linux Lite, MX Linux, antiX, PeppermintOS, Deepin, elementaryOS et ChromeOS avec le mode Linux installé. Ubuntu 16.04 ou Debian 8 ou supérieur est requis car ce script utilise apt au lieu de apt-get. **Note** : KDE Neon pourrait fonctionner, mais il pourrait y avoir des problèmes car le script utilise la commande `sudo apt upgrade` pour mettre à jour les applications.
 - `Arch` : Arch Linux, Manjaro, EndeavourOS, Garuda, SteamOS, Crystal Linux et ChimeraOS.
-- `Fedora / Red Hat` : Fedora, Fedora Spins, Red Hat Enterprise Linux (RHEL) 8 ou supérieur, AlmaLinux et Rocky Linux.
+- `Fedora / Red Hat` : Fedora, Fedora Spins, Red Hat Enterprise Linux (RHEL) 8 ou supérieur, AlmaLinux et Rocky Linux. Fedora 22 ou RHEL 8 ou supérieur est requis pour cette option.
 - `openSUSE` : SUSE, openSUSE Leap et openSUSE Tumbleweed.
 - `Red Hat Enterprise Linux (RHEL)` : Red Hat Enterprise Linux (RHEL) 7 ou inférieur.
 - `Flatpak` : Toute distribution Linux capable d'exécuter [Flatpak](https://flatpak.org).
+- `Snap` : Toute distribution Linux capable d'exécuter [Snap](https://snapcraft.io).
 
 ### Autres systèmes d'exploitation :
 
