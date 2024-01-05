@@ -11,17 +11,18 @@ OneClickAppInstaller es una herramienta de línea de comandos sencilla que te pe
 
 ### macOS:
 
-- macOS 12 (Monterey) o superior con [Homebrew](https://github.com/Homebrew/brew) instalado.
+- macOS 12 (Monterey) o superior con [Homebrew](https://github.com/Homebrew/brew) instalado. Podría funcionar en versiones anteriores, pero estas no son soportadas oficialmente por Homebrew.
 
 ### Linux:
 Aquí tienes una lista de distribuciones de Linux compatibles para cada opción en el menú:
 
-- `Ubuntu/Debian`: Ubuntu, Debian, Linux Mint, PopOS!, cualquier sabor de Ubuntu como Kubuntu, MX Linux, antiX, PeppermintOS, Deepin, elementaryOS y ChromeOS con el modo Linux instalado. **Nota**: KDE Neon podría funcionar, pero podría tener problemas porque el script utiliza el comando `sudo apt upgrade` para actualizar paquetes.
+- `Ubuntu/Debian`: Ubuntu, Debian, Linux Mint, PopOS!, cualquier sabor de Ubuntu como Kubuntu, Linux Lite, MX Linux, antiX, PeppermintOS, Deepin, elementaryOS y ChromeOS con el modo Linux instalado. Se requiere Ubuntu 16.04 o Debian 8 o superior porque este script usa apt en vez de apt-get. **Nota**: KDE Neon podría funcionar, pero podría tener problemas porque el script utiliza el comando `sudo apt upgrade` para actualizar paquetes.
 - `Arch`: Arch Linux, Manjaro, EndeavourOS, Garuda, SteamOS, Crystal Linux y ChimeraOS.
-- `Fedora / Red Hat`: Fedora, Spins de Fedora, Red Hat Enterprise Linux (RHEL) 8 o superior, AlmaLinux y Rocky Linux.
+- `Fedora / Red Hat`: Fedora, Spins de Fedora, Red Hat Enterprise Linux (RHEL) 8 o superior, AlmaLinux y Rocky Linux. Se requiere Fedora 22 o RHEL 8 o superior para esta opción.
 - `openSUSE`: SUSE, openSUSE Leap y openSUSE Tumbleweed.
 - `Red Hat Enterprise Linux (RHEL)`: Red Hat Enterprise Linux (RHEL) 7 o inferior.
-- `Flatpak`: Cualquier distribución de Linux que pueda ejecutar [Flatpak](https://flatpak.org)
+- `Flatpak`: Cualquier distribución de Linux que pueda ejecutar [Flatpak](https://flatpak.org).
+- `Snap`: Cualquier distribución de Linux que pueda ejecutar [Snap](https://snapcraft.io).
 
 ### Otros sistemas operativos:
 

@@ -45,9 +45,9 @@ private:
             translations["opt5"] = "5. About";
             translations["opt6"] = "6. Exit";
             translations["invalid"] = "Invalid option.";
-            translations["winget"] = "This script uses the winget package manager to install applications. Do you want the script to install winget? [y/n]";
+            translations["winget"] = "This script uses the Windows Package Manager (winget) to install applications. Do you want the script to install winget? [y/n]";
             translations["nowinget"] = "Winget will not be installed.";
-            translations["homebrew"] = "This script uses the Homebrew package manager to install applications. Do you want the script to install Homebrew (brew)? [y/n]";
+            translations["homebrew"] = "This script uses the Homebrew Package Manager to install applications. Do you want the script to install Homebrew (brew)? [y/n]";
             translations["nohomebrew"] = "Homebrew will not be installed.";
             translations["distro"] = "Select your Linux distribution:";
             translations["flat"] = "Flatpak (for other distributions)";
@@ -81,6 +81,7 @@ private:
             translations["foropenbsd"] = "For OpenBSD users, you can find valid package names here: https://openbsd.app.";
             translations["fornetbsd"] = "For NetBSD users, you can find valid package names here: https://netbsd.pkgs.org.";
             translations["forhaiku"] = "For Haiku users, you can find valid package names here: https://depot.haiku-os.org/.";
+            translations["forsnap"] = "For Snap users, you can find valid package names here: https://snapcraft.io/store.";
             translations["packagename"] = "Enter the package name here: ";
             translations["about1"] = "OneClickAppInstaller is a simple CLI tool that allows you to create a script to automatically install all of your apps on Windows, macOS or Linux with just one click.";
             translations["about2"] = "This tool was created by MasterJayanX.";
@@ -99,6 +100,7 @@ private:
             translations["autoapps"] = "Your applications will be added automatically. Number of applications to be added: ";
             translations["useros"] = "User operating system: ";
             translations["selected"] = "Selected option: ";
+            translations["done"] = "Done! All of your applications have been installed.";
         } 
         else if (language == "es") {
             // Spanish
@@ -111,9 +113,9 @@ private:
             translations["opt5"] = "5. Acerca de";
             translations["opt6"] = "6. Salir";
             translations["invalid"] = "Opción no válida.";
-            translations["winget"] = "Este script hace uso del gestor de paquetes winget para instalar las aplicaciones. ¿Deseas que el script instale winget? [y/n]";
+            translations["winget"] = "Este script hace uso del Gestor de paquetes de Windows (winget) para instalar las aplicaciones. ¿Deseas que el script instale winget? [y/n]";
             translations["nowinget"] = "No se instalará winget.";
-            translations["homebrew"] = "Este script hace uso del gestor de paquetes Homebrew para instalar las aplicaciones. ¿Deseas que el script instale Homebrew (brew)? [y/n]";
+            translations["homebrew"] = "Este script hace uso del Gestor de paquetes Homebrew para instalar las aplicaciones. ¿Deseas que el script instale Homebrew (brew)? [y/n]";
             translations["nohomebrew"] = "No se instalará Homebrew.";
             translations["distro"] = "Selecciona tu distribución Linux:";
             translations["flat"] = "Flatpak (para otras distribuciones)";
@@ -147,6 +149,7 @@ private:
             translations["foropenbsd"] = "Para usuarios de OpenBSD, pueden encontrar los nombres de paquetes válidos aquí: https://openbsd.app.";
             translations["fornetbsd"] = "Para usuarios de NetBSD, pueden encontrar los nombres de paquetes válidos aquí: https://netbsd.pkgs.org.";
             translations["forhaiku"] = "Para usuarios de Haiku, pueden encontrar los nombres de paquetes válidos aquí: https://depot.haiku-os.org/.";
+            translations["forsnap"] = "Para usuarios de Snap, pueden encontrar los nombres de paquetes válidos aquí: https://snapcraft.io/store.";
             translations["packagename"] = "Escribe el nombre del paquete aquí: ";
             translations["about1"] = "OneClickAppInstaller es una herramienta de línea de comandos sencilla que te permite crear un script para instalar todas tus aplicaciones en Windows, macOS o Linux automáticamente con solo un clic.";
             translations["about2"] = "Esta herramienta fue creada por MasterJayanX.";
@@ -165,6 +168,7 @@ private:
             translations["autoapps"] = "Tus aplicaciones se agregarán automáticamente. Número de aplicaciones que se agregarán: ";
             translations["useros"] = "Sistema operativo del usuario: ";
             translations["selected"] = "Opción seleccionada: ";
+            translations["done"] = "¡Listo! Todas tus aplicaciones han sido instaladas.";
         }
         else{
             // Open a language file
