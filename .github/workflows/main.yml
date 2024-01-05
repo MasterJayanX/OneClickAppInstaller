@@ -21,7 +21,7 @@ jobs:
     - name: Compile
       run: |
         g++ main.cpp -o oneclickappinstaller_nightly.sh -Wall
-        mv oneclickappinstaller_nightly.sh .github/compiled/oneclickappinstaller_nightly.sh
+        mv oneclickappinstaller_nightly.sh .github/compiled/
 
     - name: Update nightly release
       uses: eine/tip@master
