@@ -22,7 +22,7 @@
 bool install_winget = false;
 bool install_brew = false;
 string language;
-string version = "v1.2.1 (2024-01-05)";
+string version = "v1.2.2 (2024-01-11)";
 int s;
 ifstream config;
 bool configfile = false;

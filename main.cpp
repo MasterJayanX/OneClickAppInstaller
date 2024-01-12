@@ -144,7 +144,8 @@ int main(){
             // Linux
             int option2;
             // If you chose Linux, choose your distro
-            cout << translator.translate("distro") << endl << "1. Ubuntu/Debian" << endl << "2. Arch" << endl << "3. Fedora / Red Hat " << translator.translate("newer") << endl << "4. OpenSUSE" << endl << "5. Red Hat Enterprise Linux (RHEL) " << translator.translate("older") << endl << "6. " << translator.translate("flat") << endl << "7. Snap" << endl << "8. " << translator.translate("back") << endl;
+            cout << translator.translate("distro") << endl << "1. Ubuntu/Debian" << endl << "2. Arch" << endl << "3. Fedora / Red Hat " << translator.translate("newer") << endl << "4. OpenSUSE" << endl << "5. Red Hat Enterprise Linux (RHEL) " << translator.translate("older") << endl;
+            cout << "6. Flatpak " << translator.translate("otherdistro") << endl << "7. Snap " << translator.translate("otherdistro") << endl << "8. " << translator.translate("back") << endl;
             if(configfile){
                 config >> option2;
                 cout << translator.translate("selected") << option2 << endl;
