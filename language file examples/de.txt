@@ -12,8 +12,8 @@ nowinget="Winget" wird nicht installiert.
 homebrew=Dieses Skript verwendet den Paketmanager "Homebrew" zur Installation von Anwendungen. Möchten Sie, dass das Skript "Homebrew" (brew) installiert? [y/n]
 nohomebrew="Homebrew" wird nicht installiert.
 distro=Wählen Sie Ihre Linux-Distribution:
-flat=Flatpak (für andere Distributionen)
-back>Zurück zum Hauptmenü
+otherdistro=(für andere Distributionen)
+back=Zurück zum Hauptmenü
 older=(ältere Versionen)
 newer=(neuere Versionen)
 otheros=Wählen Sie Ihr Betriebssystem:

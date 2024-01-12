@@ -50,7 +50,7 @@ private:
             translations["homebrew"] = "This script uses the Homebrew Package Manager to install applications. Do you want the script to install Homebrew (brew)? [y/n]";
             translations["nohomebrew"] = "Homebrew will not be installed.";
             translations["distro"] = "Select your Linux distribution:";
-            translations["flat"] = "Flatpak (for other distributions)";
+            translations["otherdistro"] = "(for other distributions)";
             translations["back"] = "Return to Main Menu";
             translations["older"] = "(older versions)";
             translations["newer"] = "(newer versions)";
@@ -118,7 +118,7 @@ private:
             translations["homebrew"] = "Este script hace uso del Gestor de paquetes Homebrew para instalar las aplicaciones. ¿Deseas que el script instale Homebrew (brew)? [y/n]";
             translations["nohomebrew"] = "No se instalará Homebrew.";
             translations["distro"] = "Selecciona tu distribución Linux:";
-            translations["flat"] = "Flatpak (para otras distribuciones)";
+            translations["otherdistro"] = "(para otras distribuciones)";
             translations["back"] = "Volver al Menú Principal";
             translations["older"] = "(versiones antiguas)";
             translations["newer"] = "(versiones más recientes)";
