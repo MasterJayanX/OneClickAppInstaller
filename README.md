@@ -8,7 +8,7 @@ OneClickAppInstaller is a simple CLI tool that allows you to create a script to 
 ## Compatibility list
 ### Windows:
 
-- Windows 10 or above. The software might work on older versions of Windows, but the resulting script will only run on Windows 10 or above because it makes use of [winget](https://github.com/microsoft/winget-cli "winget") to install packages.
+- Windows XP or above. Keep in mind that you can choose between [winget](https://github.com/microsoft/winget-cli "winget") for Windows 10 and later and [pmfow](https://github.com/MasterJayanX/pmfow "pmfow") for Windows 8.1 and earlier.
 
 ### macOS:
 
