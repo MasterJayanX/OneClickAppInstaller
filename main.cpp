@@ -84,30 +84,52 @@ int main(){
         }
         if(option == 1){
             // Windows
-            os = "Windows";
-            update = "winget upgrade -h --all\n";
-            char winget = 'a';
-            while(winget != 'y' && winget != 'Y' && winget != 'n' && winget != 'N'){
-                // If you chose Windows, choose if you want to install winget
-                cout << translator.translate("winget") << endl;
-                if(configfile){
-                    config >> winget;
-                    cout << translator.translate("selected") << winget << endl;
+            int win_option;
+            cout << translator.translate("choosewin") << endl << "1. " << translator.translate("win10") << endl << "2. " << translator.translate("oldwin") << endl << "3. " << translator.translate("back") << endl;
+            if(configfile){
+                config >> win_option;
+                cout << translator.translate("selected") << win_option << endl;
+            }
+            else{
+                cin >> win_option;
+            }
+            if(win_option == 1){
+                os = "Windows";
+                update = "winget upgrade -h --all\n";
+                char winget = 'a';
+                while(winget != 'y' && winget != 'Y' && winget != 'n' && winget != 'N'){
+                    // If you chose Windows, choose if you want to install winget
+                    cout << translator.translate("winget") << endl;
+                    if(configfile){
+                        config >> winget;
+                        cout << translator.translate("selected") << winget << endl;
+                    }
+                    else{
+                        cin >> winget;
+                    }
+                    if(winget == 'y' || winget == 'Y'){
+                        install_winget = true;
+                    }
+                    else if(winget == 'n' || winget == 'N'){
+                        cout << translator.translate("nowinget") << endl;
+                        install_winget = false;
+                    }
+                    else{
+                        cout << translator.translate("invalid") << endl;
+                        install_winget = false;
+                    }
                 }
-                else{
-                    cin >> winget;
-                }
-                if(winget == 'y' || winget == 'Y'){
-                    install_winget = true;
-                }
-                else if(winget == 'n' || winget == 'N'){
-                    cout << translator.translate("nowinget") << endl;
-                    install_winget = false;
-                }
-                else{
-                    cout << translator.translate("invalid") << endl;
-                    install_winget = false;
-                }
+            }
+            else if(win_option == 2){
+                os = "Old Windows";
+                update = "pmfow update\n";
+            }
+            else if(win_option == 3){
+                option = START;
+            }
+            else{
+                cout << translator.translate("invalid") << endl;
+                option = START;
             }
             script(os, update, translator);
         }

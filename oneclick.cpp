@@ -22,7 +22,7 @@
 bool install_winget = false;
 bool install_brew = false;
 string language;
-string version = "v1.2.2 (2024-01-11)";
+string version = "v1.3.0 (2024-01-31)";
 int s;
 ifstream config;
 bool configfile = false;
@@ -75,6 +75,10 @@ void programs(string os, ofstream& script, Translator translator){
             if(os == "Windows"){
                 // This command installs your applications on Windows 10/11
                 instruction = "winget install " + pack + "\n";
+            }
+            else if(os == "Old Windows"){
+                // This command installs your applications on Windows 8.1 or below
+                instruction = "pmfow install" + pack + "\n";
             }
             else if(os == "macOS"){
                 // This command installs your applications on macOS
@@ -159,7 +163,7 @@ void programs(string os, ofstream& script, Translator translator){
                     // This command removes unnecessary packages on Ubuntu, Debian or Ubuntu/Debian-based distros
                     script << " && sudo apt autoremove -y";
                 }
-                if(os != "Windows"){
+                if(os != "Windows" && os != "Old Windows"){
                     script << " && echo " + translator.translate("done") << endl;
                 }
                 else{
@@ -176,6 +180,9 @@ void programs(string os, ofstream& script, Translator translator){
                     cin >> searched_package;
                     if(os == "Windows"){
                         system(("winget search " + searched_package).c_str());
+                    }
+                    if (os == "Old Windows"){
+                        system(("pmfow search " + searched_package).c_str());
                     }
                     else if(os == "macOS"){
                         system(("brew search " + searched_package).c_str());
@@ -226,6 +233,9 @@ void programs(string os, ofstream& script, Translator translator){
             if(first && (search == 'n' || search == 'N')){
                 if(os == "Windows"){
                     cout << translator.translate("forwindows") << endl;
+                }
+                else if(os == "Old Windows"){
+                    cout << translator.translate("foroldwindows") << endl;
                 }
                 else if(os == "macOS"){
                     cout << translator.translate("formacos") << endl;
@@ -278,6 +288,9 @@ void programs(string os, ofstream& script, Translator translator){
             if(os == "Windows"){
                 // This command installs your applications on Windows 10/11
                 instruction = "winget install " + pack + "\n";
+            }
+            else if(os == "Old Windows"){
+                instruction = "pmfow install" + pack + "\n";
             }
             else if(os == "macOS"){
                 // This command installs your applications on macOS
@@ -337,7 +350,7 @@ void programs(string os, ofstream& script, Translator translator){
 void script(string os, string update, Translator translator){
     char customname;
     string filename, ext;
-    if(os == "Windows"){
+    if(os == "Windows" || os == "Old Windows"){
         ext = ".bat";
     }
     else{
@@ -379,6 +392,9 @@ void script(string os, string update, Translator translator){
         if(os == "Ubuntu/Debian"){
             filename = "ubuntu-debian" + ext;
         }
+        else if (os == "Old Windows"){
+            filename = "old-windows" + ext;
+        }
         else{
             filename = os + ext;
         }
@@ -388,6 +404,9 @@ void script(string os, string update, Translator translator){
         cout << translator.translate("nocustomname") << endl;
         if(os == "Ubuntu/Debian"){
             filename = "ubuntu-debian" + ext;
+        }
+        else if (os == "Old Windows"){
+            filename = "old-windows" + ext;
         }
         else{
             filename = os + ext;
