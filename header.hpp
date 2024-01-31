@@ -68,6 +68,7 @@ private:
             translations["addmoreapps"] = "Do you want to add more applications to the script? [y/n]";
             translations["addpackage"] = "Enter the package name of the application you want to install. Note that the package name must be a valid package name for the script to work correctly.";
             translations["forwindows"] = "For Windows (winget) users, you can find valid package names here: https://winget.run (you don't need to copy the part that says winget install, just the package ID).";
+            translations["foroldwindows"] = "For users of older versions of Windows (pmfow), you can find valid package names here: https://github.com/MasterJayanX/pmfow/wiki/Software-List.";
             translations["formacos"] = "For macOS (brew) users, you can find valid package names here: https://formulae.brew.sh (you don't need to copy the part that says brew install, just the package name).";
             translations["forubuntu"] = "For Ubuntu (apt) users, you can find valid package names here: https://packages.ubuntu.com/ (you don't need to copy the part that says sudo apt install, just the package name).";
             translations["fordebian"] = "For Debian (apt) users, you can find valid package names here: https://packages.debian.org/en/ (also you don't need to copy the part that says sudo apt install, just the package name).";
@@ -101,6 +102,9 @@ private:
             translations["useros"] = "User operating system: ";
             translations["selected"] = "Selected option: ";
             translations["done"] = "Done! All of your applications have been installed.";
+            translations["choosewin"] = "Choose your Windows version: ";
+            translations["win10"] = "Windows 10 or above";
+            translations["oldwin"] = "Windows 8.1 or below";
         } 
         else if (language == "es") {
             // Spanish
@@ -136,6 +140,7 @@ private:
             translations["addmoreapps"] = "¿Deseas agregar más aplicaciones al script? [y/n]";
             translations["addpackage"] = "Ingrese el nombre del paquete de la aplicación que deseas instalar. Ten en cuenta que el nombre del paquete debe ser un nombre de paquete válido para que el script funcione correctamente.";
             translations["forwindows"] = "Para usuarios de Windows (winget), pueden encontrar los nombres de paquetes válidos aquí: https://winget.run (no es necesario copiar la parte que dice winget install, solo el ID del paquete).";
+            translations["foroldwindows"] = "Para usuarios de versiones antiguas de Windows (pmfow), pueden encontrar los nombres de paquetes válidos aquí: https://github.com/MasterJayanX/pmfow/wiki/Software-List.";
             translations["formacos"] = "Para usuarios de macOS (brew), pueden encontrar los nombres de paquetes válidos aquí: https://formulae.brew.sh (no es necesario copiar la parte que dice brew install, solo el nombre del paquete).";
             translations["forubuntu"] = "Para usuarios de Ubuntu (apt), pueden encontrar los nombres de paquetes válidos aquí: https://packages.ubuntu.com/ (no es necesario copiar la parte que dice sudo apt install, solo el nombre del paquete).";
             translations["fordebian"] = "Para usuarios de Debian (apt), pueden encontrar los nombres de paquetes válidos aquí: https://packages.debian.org/en/ (igualmente no es necesario copiar la parte que dice sudo apt install, solo el nombre del paquete).";
@@ -169,6 +174,9 @@ private:
             translations["useros"] = "Sistema operativo del usuario: ";
             translations["selected"] = "Opción seleccionada: ";
             translations["done"] = "¡Listo! Todas tus aplicaciones han sido instaladas.";
+            translations["choosewin"] = "Elige tu versión de Windows: ";
+            translations["win10"] = "Windows 10 o superior";
+            translations["oldwin"] = "Windows 8.1 o inferior";
         }
         else{
             // Open a language file
@@ -238,7 +246,7 @@ void secrets(int s, Translator translator){
     }
     else if(s == 4){
         // Dubidubidu
-        float pausa = 1.8;
+        int pausa = 2;
         cout << "Chipi chipi, chapa chapa" << endl;
         sleep(pausa);
         cout << "Dubi dubi, daba daba" << endl;
