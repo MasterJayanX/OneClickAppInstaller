@@ -119,10 +119,12 @@ int main(){
                         install_winget = false;
                     }
                 }
+                script(os, update, translator);
             }
             else if(win_option == 2){
                 os = "Old Windows";
                 update = "pmfow update\n";
+                script(os, update, translator);
             }
             else if(win_option == 3){
                 option = START;
@@ -131,7 +133,6 @@ int main(){
                 cout << translator.translate("invalid") << endl;
                 option = START;
             }
-            script(os, update, translator);
         }
         else if(option == 2){
             // macOS

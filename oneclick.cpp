@@ -78,7 +78,7 @@ void programs(string os, ofstream& script, Translator translator){
             }
             else if(os == "Old Windows"){
                 // This command installs your applications on Windows 8.1 or below
-                instruction = "pmfow install" + pack + "\n";
+                instruction = "pmfow install " + pack + "\n";
             }
             else if(os == "macOS"){
                 // This command installs your applications on macOS
@@ -290,7 +290,7 @@ void programs(string os, ofstream& script, Translator translator){
                 instruction = "winget install " + pack + "\n";
             }
             else if(os == "Old Windows"){
-                instruction = "pmfow install" + pack + "\n";
+                instruction = "pmfow install " + pack + "\n";
             }
             else if(os == "macOS"){
                 // This command installs your applications on macOS
@@ -471,6 +471,9 @@ void script(string os, string update, Translator translator){
     }
     script << "echo " + translator.translate("updates") << endl;
     script << update;
+    if(os == "Old Windows"){
+        script << "pmfow-updater\n";
+    }
     programs(os, script, translator);
     script.close();
 }
