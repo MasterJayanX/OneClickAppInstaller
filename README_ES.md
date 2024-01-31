@@ -7,7 +7,7 @@ OneClickAppInstaller es una herramienta de línea de comandos sencilla que te pe
 ## Lista de compatibilidad
 ### Windows:
 
-- Windows 10 o superior. El software podría funcionar en versiones anteriores de Windows, pero el script resultante solo se ejecutará en Windows 10 o superior, ya que utiliza [winget](https://github.com/microsoft/winget-cli "winget") para instalar paquetes.
+- Windows XP o superior. Ten en cuenta que puedes elegir entre [winget](https://github.com/microsoft/winget-cli "winget") para Windows 10 y versiones posteriores y [pmfow](https://github.com/MasterJayanX/pmfow "pmfow") para Windows 8.1 y versiones anteriores.
 
 ### macOS:
 

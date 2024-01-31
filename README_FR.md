@@ -7,7 +7,7 @@ OneClickAppInstaller est un simple outil de ligne de commandes qui vous permet d
 ## Liste de compatibilité
 ### Windows :
 
-- Windows 10 ou supérieur. Le logiciel peut fonctionner sur des versions plus anciennes de Windows, mais le script résultant ne s'exécutera que sur Windows 10 ou supérieur car il utilise [winget](https://github.com/microsoft/winget-cli "winget") pour installer des packages.
+- Windows XP ou supérieur. Tenez en compte que vous pouvez choisir entre [winget](https://github.com/microsoft/winget-cli "winget") pour Windows 10 et ultérieur et [pmfow](https://github.com/MasterJayanX/pmfow) pour Windows 8.1 et antérieur.
 
 ### macOS :
 
@@ -24,7 +24,7 @@ Voici une liste de distributions Linux compatibles pour chaque option du menu :
 - `Flatpak` : Toute distribution Linux capable d'exécuter [Flatpak](https://flatpak.org).
 - `Snap` : Toute distribution Linux capable d'exécuter [Snap](https://snapcraft.io).
 
-### Autres systèmes d'exploitation :
+### Autres systèmes opératifs:
 
 - FreeBSD
 - OpenBSD
