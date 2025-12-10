@@ -1,9 +1,9 @@
-# OneClickAppInstaller
+# OneClickAppInstaller (OCAI)
 [![GitHub release](https://img.shields.io/github/v/release/MasterJayanX/OneClickAppInstaller.svg)](https://github.com/MasterJayanX/OneClickAppInstaller/releases) [![GitHub all releases](https://img.shields.io/github/downloads/MasterJayanX/OneClickAppInstaller/total)](https://github.com/MasterJayanX/OneClickAppInstaller/releases)
 ### Langues
 [English](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README.md) | [Español](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README_ES.md) | [Français](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README_FR.md)
 ## Description
-OneClickAppInstaller est un simple outil de ligne de commandes qui vous permet de créer un script pour installer automatiquement toutes vos applications sur Windows, macOS ou Linux en un seul clic.
+OneClickAppInstaller (OCAI) est un simple outil de ligne de commandes qui vous permet de créer un script pour installer automatiquement toutes vos applications sur Windows, macOS ou Linux en un seul clic.
 ## Liste de compatibilité
 ### Windows :
 
@@ -54,7 +54,7 @@ Ensuite, vous devez ouvrir une fenêtre de terminal et compiler le fichier main.
 
 ## FAQ (Foire aux questions)
 ### Quels systèmes opératifs sont pris en charge par ce logiciel ?
-Les systèmes opératifs officiellement pris en charge pour le moment sont : Windows 10/11, macOS, Ubuntu, Debian, Arch Linux, Fedora, OpenSUSE, Red Hat Enterprise Linux et d'autres systèmes opératifs. Le logiciel lui-même fonctionnera sur tout ce qui peut exécuter des fichiers .sh, mais il ne peut créer des scripts que pour les systèmes opératifs mentionnés ci-dessus.
+Les systèmes opératifs officiellement pris en charge pour le moment sont: Windows, macOS, Ubuntu, Debian, Arch Linux, Fedora, OpenSUSE, Red Hat Enterprise Linux et d'autres systèmes opératifs.
 ### Y a-t-il d'autres systèmes opératifs qui seront pris en charge à l'avenir ?
 Je ne suis pas encore sûr des autres systèmes opératifs qui devraient être ajoutés dans les futures versions.
 ### J'ai trouvé un bogue ou le logiciel ne fonctionne pas bien. Où puis-je signaler ces problèmes ?

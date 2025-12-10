@@ -1,9 +1,9 @@
-# OneClickAppInstaller
+# OneClickAppInstaller (OCAI)
 [![GitHub release](https://img.shields.io/github/v/release/MasterJayanX/OneClickAppInstaller.svg)](https://github.com/MasterJayanX/OneClickAppInstaller/releases) [![GitHub all releases](https://img.shields.io/github/downloads/MasterJayanX/OneClickAppInstaller/total)](https://github.com/MasterJayanX/OneClickAppInstaller/releases)
 ### Idiomas
 [English](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README.md) | [Español](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README_ES.md) | [Français](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README_FR.md)
 ## Descripción
-OneClickAppInstaller es una herramienta de línea de comandos sencilla que te permite crear un script para instalar todas tus aplicaciones en Windows, macOS o Linux automáticamente con solo un clic.
+OneClickAppInstaller (OCAI) es una herramienta de línea de comandos sencilla que te permite crear un script para instalar todas tus aplicaciones en Windows, macOS o Linux automáticamente con solo un clic.
 ## Lista de compatibilidad
 ### Windows:
 
@@ -52,7 +52,7 @@ Luego, debes abrir una ventana de terminal y compilar el archivo main.cpp con el
 
 ## Preguntas frecuentes
 ### ¿Qué sistemas operativos son compatibles con este software?
-Los sistemas operativos oficialmente compatibles en este momento son: Windows 10/11, macOS, Ubuntu, Debian, Arch Linux, Fedora, OpenSUSE, Red Hat Enterprise Linux y otros sistemas operativos. El software en sí se ejecutará en cualquier cosa que pueda ejecutar archivos .sh, pero solo puede crear scripts para los sistemas operativos mencionados anteriormente.
+Los sistemas operativos oficialmente compatibles en este momento son: Windows, macOS, Ubuntu, Debian, Arch Linux, Fedora, OpenSUSE, Red Hat Enterprise Linux y otros sistemas operativos.
 ### ¿Hay algún sistema operativo que se admitirá en el futuro?
 Actualmente no estoy seguro de qué otros sistemas operativos se deben agregar en futuras versiones.
 ### Encontré un error o el software simplemente no funciona bien. ¿Dónde puedo informar estos problemas?

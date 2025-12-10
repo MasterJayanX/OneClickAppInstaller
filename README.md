@@ -1,10 +1,10 @@
-# OneClickAppInstaller
+# OneClickAppInstaller (OCAI)
 [![GitHub release](https://img.shields.io/github/v/release/MasterJayanX/OneClickAppInstaller.svg)](https://github.com/MasterJayanX/OneClickAppInstaller/releases) [![GitHub all releases](https://img.shields.io/github/downloads/MasterJayanX/OneClickAppInstaller/total)](https://github.com/MasterJayanX/OneClickAppInstaller/releases) 
 
 ### Languages
 [English](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README.md) | [Español](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README_ES.md) | [Français](https://github.com/MasterJayanX/OneClickAppInstaller/blob/main/README_FR.md)
 ## Description
-OneClickAppInstaller is a simple CLI tool that allows you to create a script to automatically install all of your apps on Windows, macOS or Linux with just one click.
+OneClickAppInstaller (OCAI) is a simple CLI tool that allows you to create a script to automatically install all of your apps on Windows, macOS or Linux with just one click.
 ## Compatibility list
 ### Windows:
 
@@ -53,7 +53,7 @@ Then, you have to open a terminal window and compile the main.cpp file with the 
 
 ## FAQ (Frequently Asked Questions)
 ### What operating systems are supported by this software?
-The officially supported operating systems at the moment are: Windows 10/11, macOS, Ubuntu, Debian, Arch Linux, Fedora, OpenSUSE, Red Hat Enterprise Linux and other operating systems. The software itself will run on anything that can run .sh files, but it can only create scripts for the aforementioned operating systems.
+The officially supported operating systems at the moment are: Windows, macOS, Ubuntu, Debian, Arch Linux, Fedora, OpenSUSE, Red Hat Enterprise Linux and other operating systems.
 ### Are there any operating systems that will be supported in the future?
 I'm currently not sure about what other operating systems should be added in future releases.
 ### I found a bug or the software is just not working well. Where can I report these issues?
