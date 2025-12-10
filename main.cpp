@@ -167,8 +167,8 @@ int main(){
             // Linux
             int option2;
             // If you chose Linux, choose your distro
-            cout << translator.translate("distro") << endl << "1. Ubuntu/Debian" << endl << "2. Arch" << endl << "3. Fedora / Red Hat " << translator.translate("newer") << endl << "4. OpenSUSE" << endl << "5. Red Hat Enterprise Linux (RHEL) " << translator.translate("older") << endl;
-            cout << "6. Flatpak " << translator.translate("otherdistro") << endl << "7. Snap " << translator.translate("otherdistro") << endl << "8. " << translator.translate("back") << endl;
+            cout << translator.translate("distro") << endl << "1. Ubuntu/Debian" << endl << "2. Arch" << endl << "3. Fedora / Red Hat " << translator.translate("newer") << endl << "4. OpenSUSE" << endl;
+            cout << "5. Flatpak " << translator.translate("otherdistro") << endl << "6. Snap " << translator.translate("otherdistro") << endl << "7. " << translator.translate("back") << endl;
             if(configfile){
                 config >> option2;
                 cout << translator.translate("selected") << option2 << endl;
@@ -193,18 +193,14 @@ int main(){
                 update = "sudo zypper --non-interactive update";
             }
             else if(option2 == 5){
-                os = "RHEL";
-                update = "sudo yum update -y";
-            }
-            else if(option2 == 6){
                 os = "Flatpak";
                 update = "flatpak update -y";
             }
-            else if(option2 == 7){
+            else if(option2 == 6){
                 os = "Snap";
                 update = "snap refresh";
             }
-            else if(option2 == 8){
+            else if(option2 == 7){
                 option = START;
             }
             else{

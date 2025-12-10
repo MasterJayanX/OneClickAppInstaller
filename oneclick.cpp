@@ -22,7 +22,7 @@
 bool install_winget = false;
 bool install_brew = false;
 string language;
-string version = "v1.3.0 (2024-01-31)";
+string version = "v2.0.0-rc1 (2025-12-11)";
 int s;
 ifstream config;
 bool configfile = false;
@@ -99,10 +99,6 @@ void programs(string os, ofstream& script, Translator translator){
             else if(os == "OpenSUSE"){
                 // This command installs your applications on SUSE Linux or OpenSUSE
                 instruction = " && sudo zypper --non-interactive install " + pack;
-            }
-            else if(os == "RHEL"){
-                // This command installs your applications on Red Hat Enterprise Linux (RHEL)
-                instruction = " && sudo yum install " + pack + " -y";
             }
             else if(os == "Flatpak"){
                 // This command installs your applications on any distro that supports Flatpak
@@ -199,9 +195,6 @@ void programs(string os, ofstream& script, Translator translator){
                     else if(os == "OpenSUSE"){
                         system(("zypper search " + searched_package).c_str());
                     }
-                    else if(os == "RHEL"){
-                        system(("yum search " + searched_package).c_str());
-                    }
                     else if(os == "Flatpak"){
                         system(("flatpak search " + searched_package).c_str());
                     }
@@ -253,9 +246,6 @@ void programs(string os, ofstream& script, Translator translator){
                 }
                 else if(os == "OpenSUSE"){
                     cout << translator.translate("foropensuse") << endl;
-                }
-                else if(os == "RHEL"){
-                    cout << translator.translate("forrhel") << endl;
                 }
                 else if(os == "Flatpak"){
                     cout << translator.translate("forflatpak") << endl;
@@ -311,10 +301,6 @@ void programs(string os, ofstream& script, Translator translator){
             else if(os == "OpenSUSE"){
                 // This command installs your applications on SUSE Linux or OpenSUSE
                 instruction = " && sudo zypper --non-interactive install " + pack;
-            }
-            else if(os == "RHEL"){
-                // This command installs your applications on Red Hat Enterprise Linux (RHEL)
-                instruction = " && sudo yum install " + pack + " -y";
             }
             else if(os == "Flatpak"){
                 // This command installs your applications on any distro that supports Flatpak
@@ -530,7 +516,7 @@ string checkUserOS(){
 
 void clearTerminal(){
     // This function clears the terminal window
-    if(user_os == "Linux" || user_os == "macOS" || user_os == "Unix"){
+    if(user_os != "Old Windows"){
         system("clear");
     }
 }
